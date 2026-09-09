@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import os, html
 
 MARCA   = "Liquid Sun"
 TITULAR = "Juan Antonio Hernández López"
@@ -246,7 +245,7 @@ PAG = """<!doctype html>
 {derechos}
 {menores}
 {cambios}
-<footer><a href="../">Volver al índice</a></footer>
+<footer><a href="./index.html">Volver al índice</a></footer>
 </div>
 </body>
 </html>
@@ -278,12 +277,15 @@ IDX = """<!doctype html>
 items = []
 for a in APPS:
     pkgtxt = ' — <code>%s</code>' % a["pkg"] if a["pkg"] else ""
-    os.makedirs(a["slug"], exist_ok=True)
-    with open(os.path.join(a["slug"], "index.html"), "w", encoding="utf-8") as f:
+    # Página plana: "grabadora.html", no "grabadora/index.html". Subir el ZIP
+    # desde el navegador de GitHub aplasta las carpetas, así que la ruta con
+    # carpeta se rompería en cuanto alguien editase desde la web. Las URLs
+    # planas son además las que están dadas de alta en Play Console.
+    with open("%s.html" % a["slug"], "w", encoding="utf-8") as f:
         f.write(PAG.format(css=CSS, marca=MARCA, nombre=a["nombre"], pkgtxt=pkgtxt, claim=a["claim"],
                            titular=TITULAR, email=EMAIL, fecha=FECHA, cuerpo=a["cuerpo"],
                            derechos=DERECHOS.format(email=EMAIL), menores=MENORES, cambios=CAMBIOS))
-    items.append('<li><a href="./%s/">%s</a> — %s</li>' % (a["slug"], a["nombre"], a["claim"]))
+    items.append('<li><a href="./%s.html">%s</a> — %s</li>' % (a["slug"], a["nombre"], a["claim"]))
 
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(IDX.format(css=CSS, marca=MARCA, titular=TITULAR, email=EMAIL, fecha=FECHA, items="\n".join(items)))
