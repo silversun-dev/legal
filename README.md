@@ -1,8 +1,9 @@
 # Liquid Sun — textos legales
 
-Este repositorio es **público a propósito** y contiene únicamente las políticas de
-privacidad de las aplicaciones publicadas por Liquid Sun. No hay aquí código de
-ninguna aplicación: los repositorios de código son privados.
+Este repositorio es **público a propósito** y contiene las políticas de privacidad
+de las aplicaciones publicadas por Liquid Sun y los iconos de tienda comunes a
+todas ellas. No hay aquí código de ninguna aplicación: los repositorios de código
+son privados.
 
 Google Play exige que la política de privacidad de cada app esté accesible en una
 URL pública. GitHub Pages sólo sirve repositorios públicos en el plan gratuito, de
@@ -35,5 +36,12 @@ y sobrescribe las que ya existen: son las rutas dadas de alta en Play Console y
 subir un ZIP desde el navegador de GitHub aplasta las carpetas. Después de
 ejecutarlo, `git status` debe listar sólo lo que hayas cambiado a propósito; si
 aparecen ficheros o carpetas nuevos, el generador y lo publicado se han separado.
+
+## Marca
+
+`marca/` tiene los iconos de 512×512 de la ficha de Play, uno por app, generados
+desde un mismo script para que se lean como una familia. Ver `marca/README.md`.
+
+---
 
 Responsable del tratamiento: Juan Antonio Hernández López · liquidsun.dev@gmail.com
