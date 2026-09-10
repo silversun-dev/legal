@@ -30,11 +30,30 @@ python3 gen-iconos.py
 
 Escribe el maestro `.svg` y el `.png` de cada app y verifica la zona segura.
 Para cambiar un icono, edita su motivo en el diccionario `MOTIVOS` de
-`gen-iconos.py`; la paleta es común y está arriba del todo.
+`marca.py`, que es de donde tiran los dos generadores; la paleta está en ese
+mismo fichero, arriba del todo.
 
-## Lo que estos iconos NO son
+## El icono del lanzador
 
-Son los iconos de la **ficha de Play**. El icono del lanzador que se ve en el
-teléfono es otro recurso, dentro de cada repositorio de app
-(`res/mipmap-*/ic_launcher*`). Cuentakilómetros y PingCoins todavía llevan ahí
-el icono por defecto de Capacitor.
+El de la ficha de Play y el que se ve en el teléfono son recursos distintos.
+`gen-lanzador.py` produce el segundo desde el mismo motivo, y lo escribe
+directamente en el `res/` de la app:
+
+```bash
+python3 gen-lanzador.py cuentakm  ../../gasolineras/android/app/src/main/res
+python3 gen-lanzador.py pingcoins ../../ping-coin/android/app/src/main/res
+```
+
+Genera el fondo vectorial con el degradado, la capa de primer plano, la capa
+monocroma de los iconos temáticos de Android 13, los PNG clásicos para Android
+7.0 y 7.1, y el XML del icono adaptativo.
+
+Un icono adaptativo es un lienzo de 108 dp del que cada lanzador recorta la
+máscara que le da la gana; lo único garantizado es el **círculo** central de
+66 dp, no el cuadrado del 66% que vale para Play. El generador mide el píxel
+opaco más lejano del centro de cada motivo, calcula la reducción que necesita el
+que peor cabe y se la aplica a los cuatro por igual, para que no acaben de
+tamaños distintos.
+
+Grabadora Forense no está en esa lista: tiene su propio icono de lanzador
+vectorial, dibujado a mano y con capa monocroma, en su repositorio.
