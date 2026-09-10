@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Liquid Sun">
+<defs><linearGradient id="i-liquid-sun-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#252B63"/><stop offset="1" stop-color="#161A3D"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-liquid-sun-bg)"/>
+<defs>
+  <linearGradient id="i-liquid-sun-sol" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FFCB5C"/><stop offset="1" stop-color="#FFA51F"/>
+  </linearGradient>
+  <clipPath id="i-liquid-sun-disco"><circle cx="256" cy="206" r="132"/></clipPath>
+</defs>
+<circle cx="256" cy="206" r="132" fill="url(#i-liquid-sun-sol)"/>
+<path d="M118 256 C 166 226 206 284 256 284 C 306 284 346 226 394 256 L 394 362 L 118 362 Z"
+      clip-path="url(#i-liquid-sun-disco)" fill="#D2600A" opacity="0.88"/>
+<path d="M256 340 C 244 366 214 392 214 412 A 42 42 0 0 0 298 412 C 298 392 268 366 256 340 Z"
+      fill="url(#i-liquid-sun-sol)"/>
+</svg>

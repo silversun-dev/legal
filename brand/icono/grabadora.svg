@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Grabadora Forense">
+<defs><linearGradient id="i-grabadora-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#334155"/><stop offset="1" stop-color="#1B2331"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-grabadora-bg)"/>
+<circle cx="256" cy="256" r="146" fill="none" stroke="#E8EDF4" stroke-width="30"/>
+<g fill="#5EC2F5">
+  <rect x="156" y="228" width="24" height="56"  rx="12"/>
+  <rect x="200" y="202" width="24" height="108" rx="12"/>
+  <rect x="244" y="176" width="24" height="160" rx="12"/>
+  <rect x="288" y="202" width="24" height="108" rx="12"/>
+  <rect x="332" y="228" width="24" height="56"  rx="12"/>
+</g>
+</svg>

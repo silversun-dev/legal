@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Inglés">
+<defs><linearGradient id="i-ingles-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#2563EB"/><stop offset="1" stop-color="#1436A4"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-ingles-bg)"/>
+<path d="M124 132 H388 A40 40 0 0 1 428 172 V340 A40 40 0 0 1 388 380 H222 L150 436 V380
+         H124 A40 40 0 0 1 84 340 V172 A40 40 0 0 1 124 132 Z"
+      fill="none" stroke="#EFF6FF" stroke-width="30" stroke-linejoin="round"/>
+<g fill="#FFC24A">
+  <rect x="199" y="230" width="22" height="52" rx="11"/>
+  <rect x="245" y="210" width="22" height="92" rx="11"/>
+  <rect x="291" y="230" width="22" height="52" rx="11"/>
+</g>
+</svg>

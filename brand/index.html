@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Marcas Liquid Sun</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,400&family=Hanken+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --papel:#F5F6FB; --sup:#FFFFFF; --linea:#DCDFEC; --linea2:#EAECF4;
+  --tinta:#14172B; --tinta2:#565C7A; --acc:#2F3A8F; --oro:#9A6B0E;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --papel:#0E1122; --sup:#171B32; --linea:#2C3150; --linea2:#232842;
+    --tinta:#E6E9F7; --tinta2:#A0A6C4; --acc:#96A0F0; --oro:#E0AE4A;
+  }
+}
+:root[data-theme="dark"]{
+  --papel:#0E1122; --sup:#171B32; --linea:#2C3150; --linea2:#232842;
+  --tinta:#E6E9F7; --tinta2:#A0A6C4; --acc:#96A0F0; --oro:#E0AE4A;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--papel);color:var(--tinta);
+  font:400 16px/1.6 "Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.w{max-width:62rem;margin:0 auto;padding-block:3rem 5rem;padding-left:1.25rem;padding-right:1.25rem}
+.eyebrow{font:500 .72rem/1 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--tinta2);margin:0 0 1.1rem}
+h1{font:600 clamp(2.6rem,7vw,4.2rem)/1.02 Spectral,Georgia,serif;margin:0 0 .5rem;
+  letter-spacing:-.02em;text-wrap:balance}
+.lede{font-size:1.12rem;color:var(--tinta2);max-width:38rem;margin:0}
+h2{font:600 1.4rem/1.2 Spectral,Georgia,serif;margin:0;letter-spacing:-.01em}
+.sec{margin-top:4rem;border-top:1px solid var(--linea);padding-top:1.6rem}
+.sec-head{display:flex;align-items:baseline;gap:.9rem;flex-wrap:wrap;margin-bottom:1.6rem}
+.sec-head p{margin:0;color:var(--tinta2);font-size:.95rem}
+
+/* La marca madre manda: dos columnas y el icono al tamaño de la ficha real. */
+.madre{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);gap:2.4rem;align-items:start}
+.madre .arte{display:flex;flex-direction:column;gap:1rem}
+.madre svg{width:100%;height:auto;display:block;border-radius:0}
+.madre .cuerpo p{margin:0 0 1rem;max-width:34rem}
+@media (max-width:640px){.madre{grid-template-columns:1fr}}
+
+.rej{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:1.4rem}
+.f{background:var(--sup);border:1px solid var(--linea);border-radius:14px;padding:1.3rem 1.3rem 1.1rem;
+  display:flex;flex-direction:column;gap:.9rem}
+.f-top{display:flex;gap:1rem;align-items:center}
+.f-top .ico{width:76px;height:76px;flex:0 0 76px}
+.f-top .ico svg{width:100%;height:100%;display:block}
+.f-nom{font:600 1.18rem/1.15 Spectral,Georgia,serif;margin:0;letter-spacing:-.01em}
+.f-repo{font:400 .74rem/1.4 "JetBrains Mono",ui-monospace,monospace;color:var(--tinta2);margin:.25rem 0 0}
+.f-que{margin:0;font-size:.92rem;color:var(--tinta2);flex:1}
+
+/* La tira de comprobación: el mismo símbolo a los tamaños en que se va a ver
+   de verdad, y suelto sobre papel. Si aguanta los 24, aguanta. */
+.tira{display:flex;align-items:center;gap:.85rem;padding:.7rem .8rem;border-radius:10px;
+  background:var(--linea2);border:1px solid var(--linea)}
+.tira svg{display:block}
+.t48 svg{width:44px;height:44px}
+.t24 svg{width:24px;height:24px}
+.papel{background:#FFFFFF;border-radius:8px;padding:5px;display:flex;box-shadow:0 1px 2px rgba(20,23,43,.14)}
+.papel svg{width:34px;height:34px}
+.tira-nota{font:400 .68rem/1.3 "JetBrains Mono",ui-monospace,monospace;color:var(--tinta2);
+  margin-left:auto;text-align:right}
+
+.pal{display:flex;gap:.4rem;flex-wrap:wrap}
+.sw{font:400 .66rem/1 "JetBrains Mono",ui-monospace,monospace;padding:.42rem .5rem;border-radius:6px;
+  border:1px solid rgba(127,132,160,.35);color:#fff;text-transform:uppercase}
+.sw.claro{color:#14172B}
+
+table{width:100%;border-collapse:collapse;font-size:.92rem;margin-top:.4rem}
+th,td{text-align:left;padding:.55rem .7rem;border-bottom:1px solid var(--linea)}
+th{font:500 .7rem/1 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--tinta2)}
+td code,.mono{font:400 .84rem/1.5 "JetBrains Mono",ui-monospace,monospace;color:var(--acc)}
+.tabla-caja{overflow-x:auto}
+.nota{background:var(--sup);border:1px solid var(--linea);border-left:3px solid var(--oro);
+  border-radius:0 10px 10px 0;padding:1rem 1.2rem;margin-top:1.4rem}
+.nota p{margin:.35rem 0;font-size:.94rem}
+.nota p:first-child{margin-top:0}
+footer{margin-top:3.5rem;padding-top:1.2rem;border-top:1px solid var(--linea);
+  color:var(--tinta2);font-size:.86rem}
+a{color:var(--acc)}
+</style>
+</head>
+<body>
+<div class="w">
+<p class="eyebrow">Sistema de marca · 10 de septiembre de 2026</p>
+<h1>Liquid Sun</h1>
+<p class="lede">Diez marcas construidas sobre la misma rejilla: lienzo de 512, símbolo dentro de un área segura de 320 y trazo de 30 con los extremos redondeados. Cada una lleva un disco o un arco, que es lo que las hace familia sin obligarlas a parecerse.</p>
+<div class="sec"><div class="sec-head"><h2>La marca de la casa</h2><p>El sol líquido</p></div>
+<div class="madre"><div class="arte"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Liquid Sun">
+<defs><linearGradient id="i-liquid-sun-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#252B63"/><stop offset="1" stop-color="#161A3D"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-liquid-sun-bg)"/>
+<defs>
+  <linearGradient id="i-liquid-sun-sol" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FFCB5C"/><stop offset="1" stop-color="#FFA51F"/>
+  </linearGradient>
+  <clipPath id="i-liquid-sun-disco"><circle cx="256" cy="206" r="132"/></clipPath>
+</defs>
+<circle cx="256" cy="206" r="132" fill="url(#i-liquid-sun-sol)"/>
+<path d="M118 256 C 166 226 206 284 256 284 C 306 284 346 226 394 256 L 394 362 L 118 362 Z"
+      clip-path="url(#i-liquid-sun-disco)" fill="#D2600A" opacity="0.88"/>
+<path d="M256 340 C 244 366 214 392 214 412 A 42 42 0 0 0 298 412 C 298 392 268 366 256 340 Z"
+      fill="url(#i-liquid-sun-sol)"/>
+</svg>
+<div class="tira"><span class="t48"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Liquid Sun">
+<defs><linearGradient id="i-liquid-sun-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#252B63"/><stop offset="1" stop-color="#161A3D"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-liquid-sun-bg)"/>
+<defs>
+  <linearGradient id="i-liquid-sun-sol" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FFCB5C"/><stop offset="1" stop-color="#FFA51F"/>
+  </linearGradient>
+  <clipPath id="i-liquid-sun-disco"><circle cx="256" cy="206" r="132"/></clipPath>
+</defs>
+<circle cx="256" cy="206" r="132" fill="url(#i-liquid-sun-sol)"/>
+<path d="M118 256 C 166 226 206 284 256 284 C 306 284 346 226 394 256 L 394 362 L 118 362 Z"
+      clip-path="url(#i-liquid-sun-disco)" fill="#D2600A" opacity="0.88"/>
+<path d="M256 340 C 244 366 214 392 214 412 A 42 42 0 0 0 298 412 C 298 392 268 366 256 340 Z"
+      fill="url(#i-liquid-sun-sol)"/>
+</svg>
+</span><span class="t24"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Liquid Sun">
+<defs><linearGradient id="i-liquid-sun-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#252B63"/><stop offset="1" stop-color="#161A3D"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-liquid-sun-bg)"/>
+<defs>
+  <linearGradient id="i-liquid-sun-sol" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FFCB5C"/><stop offset="1" stop-color="#FFA51F"/>
+  </linearGradient>
+  <clipPath id="i-liquid-sun-disco"><circle cx="256" cy="206" r="132"/></clipPath>
+</defs>
+<circle cx="256" cy="206" r="132" fill="url(#i-liquid-sun-sol)"/>
+<path d="M118 256 C 166 226 206 284 256 284 C 306 284 346 226 394 256 L 394 362 L 118 362 Z"
+      clip-path="url(#i-liquid-sun-disco)" fill="#D2600A" opacity="0.88"/>
+<path d="M256 340 C 244 366 214 392 214 412 A 42 42 0 0 0 298 412 C 298 392 268 366 256 340 Z"
+      fill="url(#i-liquid-sun-sol)"/>
+</svg>
+</span><span class="papel"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Liquid Sun">
+<defs>
+  <linearGradient id="m-liquid-sun-sol" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F3B22E"/><stop offset="1" stop-color="#E0871A"/>
+  </linearGradient>
+  <clipPath id="m-liquid-sun-disco"><circle cx="256" cy="206" r="132"/></clipPath>
+</defs>
+<circle cx="256" cy="206" r="132" fill="url(#m-liquid-sun-sol)"/>
+<path d="M118 256 C 166 226 206 284 256 284 C 306 284 346 226 394 256 L 394 362 L 118 362 Z"
+      clip-path="url(#m-liquid-sun-disco)" fill="#D2600A" opacity="0.88"/>
+<path d="M256 340 C 244 366 214 392 214 412 A 42 42 0 0 0 298 412 C 298 392 268 366 256 340 Z"
+      fill="url(#m-liquid-sun-sol)"/>
+</svg>
+</span><span class="tira-nota">48 · 24 · papel</span></div></div>
+<div class="cuerpo"><p>El sol que se ha vuelto líquido: metal fundido dentro del disco, y la gota que ya ha caído.</p>
+<p>El oro y el naranja profundo son de la casa y no se repiten en ninguna app: una app que use el oro de Liquid Sun compite con su propia marca. Lo que sí se repite es el azul <span class="mono">#2F3A8F</span>, que ya venía de las páginas legales y aquí queda como el color del editor, no de ningún producto.</p>
+<div class="pal"><span class="sw" style="background:#252B63">#252B63</span><span class="sw" style="background:#161A3D">#161A3D</span><span class="sw claro" style="background:#FFCB5C">#FFCB5C</span><span class="sw" style="background:#D2600A">#D2600A</span></div>
+</div></div></div>
+<div class="sec"><div class="sec-head"><h2>Las aplicaciones</h2><p>Nueve marcas, una por repositorio</p></div><div class="rej">
+<div class="f">
+<div class="f-top"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Grabadora Forense">
+<defs><linearGradient id="i-grabadora-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#334155"/><stop offset="1" stop-color="#1B2331"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-grabadora-bg)"/>
+<circle cx="256" cy="256" r="146" fill="none" stroke="#E8EDF4" stroke-width="30"/>
+<g fill="#5EC2F5">
+  <rect x="156" y="228" width="24" height="56"  rx="12"/>
+  <rect x="200" y="202" width="24" height="108" rx="12"/>
+  <rect x="244" y="176" width="24" height="160" rx="12"/>
+  <rect x="288" y="202" width="24" height="108" rx="12"/>
+  <rect x="332" y="228" width="24" height="56"  rx="12"/>
+</g>
+</svg>
+</div><div><p class="f-nom">Grabadora Forense</p><p class="f-repo">grabadora</p></div></div>
+<p class="f-que">La onda encerrada en un sello. El anillo es la huella SHA-256 que rodea lo grabado: dentro no se toca nada.</p>
+<div class="tira"><span class="t48"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Grabadora Forense">
+<defs><linearGradient id="i-grabadora-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#334155"/><stop offset="1" stop-color="#1B2331"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-grabadora-bg)"/>
+<circle cx="256" cy="256" r="146" fill="none" stroke="#E8EDF4" stroke-width="30"/>
+<g fill="#5EC2F5">
+  <rect x="156" y="228" width="24" height="56"  rx="12"/>
+  <rect x="200" y="202" width="24" height="108" rx="12"/>
+  <rect x="244" y="176" width="24" height="160" rx="12"/>
+  <rect x="288" y="202" width="24" height="108" rx="12"/>
+  <rect x="332" y="228" width="24" height="56"  rx="12"/>
+</g>
+</svg>
+</span><span class="t24"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Grabadora Forense">
+<defs><linearGradient id="i-grabadora-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#334155"/><stop offset="1" stop-color="#1B2331"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-grabadora-bg)"/>
+<circle cx="256" cy="256" r="146" fill="none" stroke="#E8EDF4" stroke-width="30"/>
+<g fill="#5EC2F5">
+  <rect x="156" y="228" width="24" height="56"  rx="12"/>
+  <rect x="200" y="202" width="24" height="108" rx="12"/>
+  <rect x="244" y="176" width="24" height="160" rx="12"/>
+  <rect x="288" y="202" width="24" height="108" rx="12"/>
+  <rect x="332" y="228" width="24" height="56"  rx="12"/>
+</g>
+</svg>
+</span><span class="papel"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Grabadora Forense">
+<circle cx="256" cy="256" r="146" fill="none" stroke="#1F2937" stroke-width="30"/>
+<g fill="#0369A1">
+  <rect x="156" y="228" width="24" height="56"  rx="12"/>
+  <rect x="200" y="202" width="24" height="108" rx="12"/>
+  <rect x="244" y="176" width="24" height="160" rx="12"/>
+  <rect x="288" y="202" width="24" height="108" rx="12"/>
+  <rect x="332" y="228" width="24" height="56"  rx="12"/>
+</g>
+</svg>
+</span><span class="tira-nota">48 · 24<br>papel</span></div>
+<div class="pal"><span class="sw" style="background:#334155">#334155</span><span class="sw" style="background:#1B2331">#1B2331</span><span class="sw claro" style="background:#5EC2F5">#5EC2F5</span><span class="sw claro" style="background:#E8EDF4">#E8EDF4</span></div>
+</div>
+<div class="f">
+<div class="f-top"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Cuentakilómetros">
+<defs><linearGradient id="i-cuentakm-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#0F766E"/><stop offset="1" stop-color="#083F3B"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-cuentakm-bg)"/>
+<path d="M126 316 A 130 130 0 0 1 386 316" fill="none" stroke="#EAFBF6"
+      stroke-width="32" stroke-linecap="round"/>
+<g stroke="#EAFBF6" stroke-width="14" stroke-linecap="round" opacity="0.45">
+  <path d="M154 236 L 175 251"/>
+  <path d="M256 196 L 256 222"/>
+  <path d="M358 236 L 337 251"/>
+</g>
+<path d="M256 316 L 340 228" stroke="#FFC24A" stroke-width="30" stroke-linecap="round"/>
+<circle cx="256" cy="316" r="26" fill="#EAFBF6"/>
+</svg>
+</div><div><p class="f-nom">Cuentakilómetros</p><p class="f-repo">gasolineras</p></div></div>
+<p class="f-que">El cuadrante con la aguja subida. Tres marcas de graduación, las justas para que se lea como tablero de coche y no como reloj.</p>
+<div class="tira"><span class="t48"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Cuentakilómetros">
+<defs><linearGradient id="i-cuentakm-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#0F766E"/><stop offset="1" stop-color="#083F3B"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-cuentakm-bg)"/>
+<path d="M126 316 A 130 130 0 0 1 386 316" fill="none" stroke="#EAFBF6"
+      stroke-width="32" stroke-linecap="round"/>
+<g stroke="#EAFBF6" stroke-width="14" stroke-linecap="round" opacity="0.45">
+  <path d="M154 236 L 175 251"/>
+  <path d="M256 196 L 256 222"/>
+  <path d="M358 236 L 337 251"/>
+</g>
+<path d="M256 316 L 340 228" stroke="#FFC24A" stroke-width="30" stroke-linecap="round"/>
+<circle cx="256" cy="316" r="26" fill="#EAFBF6"/>
+</svg>
+</span><span class="t24"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Cuentakilómetros">
+<defs><linearGradient id="i-cuentakm-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#0F766E"/><stop offset="1" stop-color="#083F3B"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-cuentakm-bg)"/>
+<path d="M126 316 A 130 130 0 0 1 386 316" fill="none" stroke="#EAFBF6"
+      stroke-width="32" stroke-linecap="round"/>
+<g stroke="#EAFBF6" stroke-width="14" stroke-linecap="round" opacity="0.45">
+  <path d="M154 236 L 175 251"/>
+  <path d="M256 196 L 256 222"/>
+  <path d="M358 236 L 337 251"/>
+</g>
+<path d="M256 316 L 340 228" stroke="#FFC24A" stroke-width="30" stroke-linecap="round"/>
+<circle cx="256" cy="316" r="26" fill="#EAFBF6"/>
+</svg>
+</span><span class="papel"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Cuentakilómetros">
+<path d="M126 316 A 130 130 0 0 1 386 316" fill="none" stroke="#0F766E"
+      stroke-width="32" stroke-linecap="round"/>
+<g stroke="#0F766E" stroke-width="14" stroke-linecap="round" opacity="0.45">
+  <path d="M154 236 L 175 251"/>
+  <path d="M256 196 L 256 222"/>
+  <path d="M358 236 L 337 251"/>
+</g>
+<path d="M256 316 L 340 228" stroke="#D97706" stroke-width="30" stroke-linecap="round"/>
+<circle cx="256" cy="316" r="26" fill="#0F766E"/>
+</svg>
+</span><span class="tira-nota">48 · 24<br>papel</span></div>
+<div class="pal"><span class="sw" style="background:#0F766E">#0F766E</span><span class="sw" style="background:#083F3B">#083F3B</span><span class="sw claro" style="background:#FFC24A">#FFC24A</span><span class="sw claro" style="background:#EAFBF6">#EAFBF6</span></div>
+</div>
+<div class="f">
+<div class="f-top"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Sun Bell">
+<defs><linearGradient id="i-sunbell-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#475569"/><stop offset="1" stop-color="#232B3A"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-sunbell-bg)"/>
+<circle cx="248" cy="256" r="114" fill="none" stroke="#F1F5F9" stroke-width="32"/>
+<circle cx="248" cy="256" r="42" fill="#F1F5F9"/>
+<path d="M344 172 A 128 128 0 0 1 344 340" fill="none" stroke="#FFC24A"
+      stroke-width="26" stroke-linecap="round"/>
+<path d="M381 140 A 176 176 0 0 1 381 372" fill="none" stroke="#FFC24A"
+      stroke-width="26" stroke-linecap="round" opacity="0.6"/>
+</svg>
+</div><div><p class="f-nom">Sun Bell</p><p class="f-repo">ping-coin</p></div></div>
+<p class="f-que">La moneda golpeada y lo que sale de ella. Dos arcos, no cinco: es un ping, un golpe seco, no una campana repicando.</p>
+<div class="tira"><span class="t48"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Sun Bell">
+<defs><linearGradient id="i-sunbell-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#475569"/><stop offset="1" stop-color="#232B3A"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-sunbell-bg)"/>
+<circle cx="248" cy="256" r="114" fill="none" stroke="#F1F5F9" stroke-width="32"/>
+<circle cx="248" cy="256" r="42" fill="#F1F5F9"/>
+<path d="M344 172 A 128 128 0 0 1 344 340" fill="none" stroke="#FFC24A"
+      stroke-width="26" stroke-linecap="round"/>
+<path d="M381 140 A 176 176 0 0 1 381 372" fill="none" stroke="#FFC24A"
+      stroke-width="26" stroke-linecap="round" opacity="0.6"/>
+</svg>
+</span><span class="t24"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Sun Bell">
+<defs><linearGradient id="i-sunbell-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#475569"/><stop offset="1" stop-color="#232B3A"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-sunbell-bg)"/>
+<circle cx="248" cy="256" r="114" fill="none" stroke="#F1F5F9" stroke-width="32"/>
+<circle cx="248" cy="256" r="42" fill="#F1F5F9"/>
+<path d="M344 172 A 128 128 0 0 1 344 340" fill="none" stroke="#FFC24A"
+      stroke-width="26" stroke-linecap="round"/>
+<path d="M381 140 A 176 176 0 0 1 381 372" fill="none" stroke="#FFC24A"
+      stroke-width="26" stroke-linecap="round" opacity="0.6"/>
+</svg>
+</span><span class="papel"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Sun Bell">
+<circle cx="248" cy="256" r="114" fill="none" stroke="#334155" stroke-width="32"/>
+<circle cx="248" cy="256" r="42" fill="#334155"/>
+<path d="M344 172 A 128 128 0 0 1 344 340" fill="none" stroke="#B45309"
+      stroke-width="26" stroke-linecap="round"/>
+<path d="M381 140 A 176 176 0 0 1 381 372" fill="none" stroke="#B45309"
+      stroke-width="26" stroke-linecap="round" opacity="0.6"/>
+</svg>
+</span><span class="tira-nota">48 · 24<br>papel</span></div>
+<div class="pal"><span class="sw" style="background:#475569">#475569</span><span class="sw" style="background:#232B3A">#232B3A</span><span class="sw claro" style="background:#FFC24A">#FFC24A</span><span class="sw claro" style="background:#F1F5F9">#F1F5F9</span></div>
+</div>
+<div class="f">
+<div class="f-top"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Sol · ventana de paseo">
+<defs><linearGradient id="i-sol-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#2A4A9E"/><stop offset="1" stop-color="#0D1638"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-sol-bg)"/>
+<path d="M126 348 A 130 130 0 0 1 386 348" fill="none" stroke="#DCE6FF"
+      stroke-width="16" stroke-linecap="round" stroke-dasharray="0.01 54" opacity="0.8"/>
+<path d="M112 348 L 400 348" stroke="#DCE6FF" stroke-width="28" stroke-linecap="round"/>
+<circle cx="321" cy="235" r="56" fill="#FFC24A"/>
+</svg>
+</div><div><p class="f-nom">Sol · ventana de paseo</p><p class="f-repo">sol</p></div></div>
+<p class="f-que">La carrera del sol punteada sobre el horizonte, con el sol ya cayendo. El disco marca la hora en la que se puede salir.</p>
+<div class="tira"><span class="t48"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Sol · ventana de paseo">
+<defs><linearGradient id="i-sol-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#2A4A9E"/><stop offset="1" stop-color="#0D1638"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-sol-bg)"/>
+<path d="M126 348 A 130 130 0 0 1 386 348" fill="none" stroke="#DCE6FF"
+      stroke-width="16" stroke-linecap="round" stroke-dasharray="0.01 54" opacity="0.8"/>
+<path d="M112 348 L 400 348" stroke="#DCE6FF" stroke-width="28" stroke-linecap="round"/>
+<circle cx="321" cy="235" r="56" fill="#FFC24A"/>
+</svg>
+</span><span class="t24"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Sol · ventana de paseo">
+<defs><linearGradient id="i-sol-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#2A4A9E"/><stop offset="1" stop-color="#0D1638"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-sol-bg)"/>
+<path d="M126 348 A 130 130 0 0 1 386 348" fill="none" stroke="#DCE6FF"
+      stroke-width="16" stroke-linecap="round" stroke-dasharray="0.01 54" opacity="0.8"/>
+<path d="M112 348 L 400 348" stroke="#DCE6FF" stroke-width="28" stroke-linecap="round"/>
+<circle cx="321" cy="235" r="56" fill="#FFC24A"/>
+</svg>
+</span><span class="papel"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Sol · ventana de paseo">
+<path d="M126 348 A 130 130 0 0 1 386 348" fill="none" stroke="#1E3A8A"
+      stroke-width="16" stroke-linecap="round" stroke-dasharray="0.01 54" opacity="0.8"/>
+<path d="M112 348 L 400 348" stroke="#1E3A8A" stroke-width="28" stroke-linecap="round"/>
+<circle cx="321" cy="235" r="56" fill="#E2670C"/>
+</svg>
+</span><span class="tira-nota">48 · 24<br>papel</span></div>
+<div class="pal"><span class="sw" style="background:#2A4A9E">#2A4A9E</span><span class="sw" style="background:#0D1638">#0D1638</span><span class="sw claro" style="background:#FFC24A">#FFC24A</span><span class="sw claro" style="background:#DCE6FF">#DCE6FF</span></div>
+</div>
+<div class="f">
+<div class="f-top"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="NumisCore">
+<defs><linearGradient id="i-numiscore-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#3F3F46"/><stop offset="1" stop-color="#18181B"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-numiscore-bg)"/>
+<circle cx="256" cy="256" r="146" fill="none" stroke="#E4E4E7" stroke-width="30"/>
+<circle cx="256" cy="256" r="104" fill="none" stroke="#E4E4E7" stroke-width="8"
+        stroke-dasharray="2 24" stroke-linecap="round" opacity="0.65"/>
+<circle cx="256" cy="256" r="66" fill="#FFC24A"/>
+</svg>
+</div><div><p class="f-nom">NumisCore</p><p class="f-repo">numiscode</p></div></div>
+<p class="f-que">El peso bruto fuera, la ley en el anillo punteado y el metal fino en el centro. El orden del cálculo, dibujado.</p>
+<div class="tira"><span class="t48"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="NumisCore">
+<defs><linearGradient id="i-numiscore-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#3F3F46"/><stop offset="1" stop-color="#18181B"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-numiscore-bg)"/>
+<circle cx="256" cy="256" r="146" fill="none" stroke="#E4E4E7" stroke-width="30"/>
+<circle cx="256" cy="256" r="104" fill="none" stroke="#E4E4E7" stroke-width="8"
+        stroke-dasharray="2 24" stroke-linecap="round" opacity="0.65"/>
+<circle cx="256" cy="256" r="66" fill="#FFC24A"/>
+</svg>
+</span><span class="t24"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="NumisCore">
+<defs><linearGradient id="i-numiscore-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#3F3F46"/><stop offset="1" stop-color="#18181B"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-numiscore-bg)"/>
+<circle cx="256" cy="256" r="146" fill="none" stroke="#E4E4E7" stroke-width="30"/>
+<circle cx="256" cy="256" r="104" fill="none" stroke="#E4E4E7" stroke-width="8"
+        stroke-dasharray="2 24" stroke-linecap="round" opacity="0.65"/>
+<circle cx="256" cy="256" r="66" fill="#FFC24A"/>
+</svg>
+</span><span class="papel"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="NumisCore">
+<circle cx="256" cy="256" r="146" fill="none" stroke="#27272A" stroke-width="30"/>
+<circle cx="256" cy="256" r="104" fill="none" stroke="#27272A" stroke-width="8"
+        stroke-dasharray="2 24" stroke-linecap="round" opacity="0.65"/>
+<circle cx="256" cy="256" r="66" fill="#B58A2B"/>
+</svg>
+</span><span class="tira-nota">48 · 24<br>papel</span></div>
+<div class="pal"><span class="sw" style="background:#3F3F46">#3F3F46</span><span class="sw" style="background:#18181B">#18181B</span><span class="sw claro" style="background:#FFC24A">#FFC24A</span><span class="sw claro" style="background:#E4E4E7">#E4E4E7</span></div>
+</div>
+<div class="f">
+<div class="f-top"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Inglés">
+<defs><linearGradient id="i-ingles-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#2563EB"/><stop offset="1" stop-color="#1436A4"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-ingles-bg)"/>
+<path d="M124 132 H388 A40 40 0 0 1 428 172 V340 A40 40 0 0 1 388 380 H222 L150 436 V380
+         H124 A40 40 0 0 1 84 340 V172 A40 40 0 0 1 124 132 Z"
+      fill="none" stroke="#EFF6FF" stroke-width="30" stroke-linejoin="round"/>
+<g fill="#FFC24A">
+  <rect x="199" y="230" width="22" height="52" rx="11"/>
+  <rect x="245" y="210" width="22" height="92" rx="11"/>
+  <rect x="291" y="230" width="22" height="52" rx="11"/>
+</g>
+</svg>
+</div><div><p class="f-nom">Inglés</p><p class="f-repo">ingles</p></div></div>
+<p class="f-que">La tarjeta convertida en bocadillo, porque la app no es de leer fichas: es de decirlas en voz alta.</p>
+<div class="tira"><span class="t48"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Inglés">
+<defs><linearGradient id="i-ingles-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#2563EB"/><stop offset="1" stop-color="#1436A4"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-ingles-bg)"/>
+<path d="M124 132 H388 A40 40 0 0 1 428 172 V340 A40 40 0 0 1 388 380 H222 L150 436 V380
+         H124 A40 40 0 0 1 84 340 V172 A40 40 0 0 1 124 132 Z"
+      fill="none" stroke="#EFF6FF" stroke-width="30" stroke-linejoin="round"/>
+<g fill="#FFC24A">
+  <rect x="199" y="230" width="22" height="52" rx="11"/>
+  <rect x="245" y="210" width="22" height="92" rx="11"/>
+  <rect x="291" y="230" width="22" height="52" rx="11"/>
+</g>
+</svg>
+</span><span class="t24"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Inglés">
+<defs><linearGradient id="i-ingles-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#2563EB"/><stop offset="1" stop-color="#1436A4"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-ingles-bg)"/>
+<path d="M124 132 H388 A40 40 0 0 1 428 172 V340 A40 40 0 0 1 388 380 H222 L150 436 V380
+         H124 A40 40 0 0 1 84 340 V172 A40 40 0 0 1 124 132 Z"
+      fill="none" stroke="#EFF6FF" stroke-width="30" stroke-linejoin="round"/>
+<g fill="#FFC24A">
+  <rect x="199" y="230" width="22" height="52" rx="11"/>
+  <rect x="245" y="210" width="22" height="92" rx="11"/>
+  <rect x="291" y="230" width="22" height="52" rx="11"/>
+</g>
+</svg>
+</span><span class="papel"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Inglés">
+<path d="M124 132 H388 A40 40 0 0 1 428 172 V340 A40 40 0 0 1 388 380 H222 L150 436 V380
+         H124 A40 40 0 0 1 84 340 V172 A40 40 0 0 1 124 132 Z"
+      fill="none" stroke="#1D4ED8" stroke-width="30" stroke-linejoin="round"/>
+<g fill="#D97706">
+  <rect x="199" y="230" width="22" height="52" rx="11"/>
+  <rect x="245" y="210" width="22" height="92" rx="11"/>
+  <rect x="291" y="230" width="22" height="52" rx="11"/>
+</g>
+</svg>
+</span><span class="tira-nota">48 · 24<br>papel</span></div>
+<div class="pal"><span class="sw" style="background:#2563EB">#2563EB</span><span class="sw" style="background:#1436A4">#1436A4</span><span class="sw claro" style="background:#FFC24A">#FFC24A</span><span class="sw claro" style="background:#EFF6FF">#EFF6FF</span></div>
+</div>
+<div class="f">
+<div class="f-top"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="ON — UMBRA">
+<defs><linearGradient id="i-on-umbra-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#241B3A"/><stop offset="1" stop-color="#0B0A1A"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-on-umbra-bg)"/>
+<defs>
+  <mask id="i-on-umbra-ecl">
+    <circle cx="268" cy="272" r="62" fill="#fff"/>
+    <circle cx="292" cy="256" r="60" fill="#000"/>
+  </mask>
+</defs>
+<path d="M146 428 V 268 A 110 110 0 0 1 366 268 V 428" fill="none" stroke="#8B7BB8"
+      stroke-width="32" stroke-linecap="round"/>
+<circle cx="268" cy="272" r="62" fill="#D9B45F" mask="url(#i-on-umbra-ecl)"/>
+</svg>
+</div><div><p class="f-nom">ON — UMBRA</p><p class="f-repo">ON</p></div></div>
+<p class="f-que">El umbral abierto y, dentro, el eclipse. Se entra por voluntad propia y se puede salir: el arco no tiene puerta.</p>
+<div class="tira"><span class="t48"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="ON — UMBRA">
+<defs><linearGradient id="i-on-umbra-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#241B3A"/><stop offset="1" stop-color="#0B0A1A"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-on-umbra-bg)"/>
+<defs>
+  <mask id="i-on-umbra-ecl">
+    <circle cx="268" cy="272" r="62" fill="#fff"/>
+    <circle cx="292" cy="256" r="60" fill="#000"/>
+  </mask>
+</defs>
+<path d="M146 428 V 268 A 110 110 0 0 1 366 268 V 428" fill="none" stroke="#8B7BB8"
+      stroke-width="32" stroke-linecap="round"/>
+<circle cx="268" cy="272" r="62" fill="#D9B45F" mask="url(#i-on-umbra-ecl)"/>
+</svg>
+</span><span class="t24"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="ON — UMBRA">
+<defs><linearGradient id="i-on-umbra-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#241B3A"/><stop offset="1" stop-color="#0B0A1A"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-on-umbra-bg)"/>
+<defs>
+  <mask id="i-on-umbra-ecl">
+    <circle cx="268" cy="272" r="62" fill="#fff"/>
+    <circle cx="292" cy="256" r="60" fill="#000"/>
+  </mask>
+</defs>
+<path d="M146 428 V 268 A 110 110 0 0 1 366 268 V 428" fill="none" stroke="#8B7BB8"
+      stroke-width="32" stroke-linecap="round"/>
+<circle cx="268" cy="272" r="62" fill="#D9B45F" mask="url(#i-on-umbra-ecl)"/>
+</svg>
+</span><span class="papel"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="ON — UMBRA">
+<defs>
+  <mask id="m-on-umbra-ecl">
+    <circle cx="268" cy="272" r="62" fill="#fff"/>
+    <circle cx="292" cy="256" r="60" fill="#000"/>
+  </mask>
+</defs>
+<path d="M146 428 V 268 A 110 110 0 0 1 366 268 V 428" fill="none" stroke="#4C3F73"
+      stroke-width="32" stroke-linecap="round"/>
+<circle cx="268" cy="272" r="62" fill="#A67C1A" mask="url(#m-on-umbra-ecl)"/>
+</svg>
+</span><span class="tira-nota">48 · 24<br>papel</span></div>
+<div class="pal"><span class="sw" style="background:#241B3A">#241B3A</span><span class="sw" style="background:#0B0A1A">#0B0A1A</span><span class="sw claro" style="background:#D9B45F">#D9B45F</span><span class="sw" style="background:#8B7BB8">#8B7BB8</span></div>
+</div>
+<div class="f">
+<div class="f-top"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Descorche">
+<defs><linearGradient id="i-descorche-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#881337"/><stop offset="1" stop-color="#440A1C"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-descorche-bg)"/>
+<g transform="rotate(-16 258 104)"><rect x="230" y="60" width="56" height="76" rx="16" fill="#E8B04B"/></g>
+<path d="M226 190 V244 C226 284 186 292 186 340 V416 A28 28 0 0 0 214 444
+         H298 A28 28 0 0 0 326 416 V340 C326 292 286 284 286 244 V190"
+      fill="none" stroke="#FDE8E8" stroke-width="30" stroke-linejoin="round"
+      stroke-linecap="round"/>
+<rect x="208" y="344" width="96" height="58" rx="12" fill="#E8B04B"/>
+</svg>
+</div><div><p class="f-nom">Descorche</p><p class="f-repo">vinos</p></div></div>
+<p class="f-que">El corcho ya fuera y la etiqueta en su sitio. Lo que hace la app está en ese hueco entre el corcho y la boca.</p>
+<div class="tira"><span class="t48"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Descorche">
+<defs><linearGradient id="i-descorche-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#881337"/><stop offset="1" stop-color="#440A1C"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-descorche-bg)"/>
+<g transform="rotate(-16 258 104)"><rect x="230" y="60" width="56" height="76" rx="16" fill="#E8B04B"/></g>
+<path d="M226 190 V244 C226 284 186 292 186 340 V416 A28 28 0 0 0 214 444
+         H298 A28 28 0 0 0 326 416 V340 C326 292 286 284 286 244 V190"
+      fill="none" stroke="#FDE8E8" stroke-width="30" stroke-linejoin="round"
+      stroke-linecap="round"/>
+<rect x="208" y="344" width="96" height="58" rx="12" fill="#E8B04B"/>
+</svg>
+</span><span class="t24"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Descorche">
+<defs><linearGradient id="i-descorche-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#881337"/><stop offset="1" stop-color="#440A1C"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-descorche-bg)"/>
+<g transform="rotate(-16 258 104)"><rect x="230" y="60" width="56" height="76" rx="16" fill="#E8B04B"/></g>
+<path d="M226 190 V244 C226 284 186 292 186 340 V416 A28 28 0 0 0 214 444
+         H298 A28 28 0 0 0 326 416 V340 C326 292 286 284 286 244 V190"
+      fill="none" stroke="#FDE8E8" stroke-width="30" stroke-linejoin="round"
+      stroke-linecap="round"/>
+<rect x="208" y="344" width="96" height="58" rx="12" fill="#E8B04B"/>
+</svg>
+</span><span class="papel"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Descorche">
+<g transform="rotate(-16 258 104)"><rect x="230" y="60" width="56" height="76" rx="16" fill="#A16207"/></g>
+<path d="M226 190 V244 C226 284 186 292 186 340 V416 A28 28 0 0 0 214 444
+         H298 A28 28 0 0 0 326 416 V340 C326 292 286 284 286 244 V190"
+      fill="none" stroke="#881337" stroke-width="30" stroke-linejoin="round"
+      stroke-linecap="round"/>
+<rect x="208" y="344" width="96" height="58" rx="12" fill="#A16207"/>
+</svg>
+</span><span class="tira-nota">48 · 24<br>papel</span></div>
+<div class="pal"><span class="sw" style="background:#881337">#881337</span><span class="sw" style="background:#440A1C">#440A1C</span><span class="sw claro" style="background:#E8B04B">#E8B04B</span><span class="sw claro" style="background:#FDE8E8">#FDE8E8</span></div>
+</div>
+<div class="f">
+<div class="f-top"><div class="ico"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Reflejo Interno">
+<defs><linearGradient id="i-reflejo-interno-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#6D5A9C"/><stop offset="1" stop-color="#332748"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-reflejo-interno-bg)"/>
+<defs>
+  <mask id="i-reflejo-interno-agua">
+    <rect x="0" y="0" width="512" height="512" fill="#000"/>
+    <ellipse cx="256" cy="382" rx="88" ry="64" fill="#fff"/>
+    <rect x="140" y="334" width="232" height="9" fill="#000"/>
+    <rect x="140" y="378" width="232" height="7" fill="#000"/>
+  </mask>
+</defs>
+<circle cx="256" cy="184" r="94" fill="#C4B5FD"/>
+<path d="M116 296 L 396 296" stroke="#EDE9FE" stroke-width="26" stroke-linecap="round"/>
+<rect x="140" y="300" width="232" height="212" fill="#C4B5FD" opacity="0.4" mask="url(#i-reflejo-interno-agua)"/>
+</svg>
+</div><div><p class="f-nom">Reflejo Interno</p><p class="f-repo">reflejo-interno</p></div></div>
+<p class="f-que">Lo de arriba y lo de abajo separados por la lámina de agua. El reflejo llega roto, que es como llega de verdad.</p>
+<div class="tira"><span class="t48"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Reflejo Interno">
+<defs><linearGradient id="i-reflejo-interno-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#6D5A9C"/><stop offset="1" stop-color="#332748"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-reflejo-interno-bg)"/>
+<defs>
+  <mask id="i-reflejo-interno-agua">
+    <rect x="0" y="0" width="512" height="512" fill="#000"/>
+    <ellipse cx="256" cy="382" rx="88" ry="64" fill="#fff"/>
+    <rect x="140" y="334" width="232" height="9" fill="#000"/>
+    <rect x="140" y="378" width="232" height="7" fill="#000"/>
+  </mask>
+</defs>
+<circle cx="256" cy="184" r="94" fill="#C4B5FD"/>
+<path d="M116 296 L 396 296" stroke="#EDE9FE" stroke-width="26" stroke-linecap="round"/>
+<rect x="140" y="300" width="232" height="212" fill="#C4B5FD" opacity="0.4" mask="url(#i-reflejo-interno-agua)"/>
+</svg>
+</span><span class="t24"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Reflejo Interno">
+<defs><linearGradient id="i-reflejo-interno-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#6D5A9C"/><stop offset="1" stop-color="#332748"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-reflejo-interno-bg)"/>
+<defs>
+  <mask id="i-reflejo-interno-agua">
+    <rect x="0" y="0" width="512" height="512" fill="#000"/>
+    <ellipse cx="256" cy="382" rx="88" ry="64" fill="#fff"/>
+    <rect x="140" y="334" width="232" height="9" fill="#000"/>
+    <rect x="140" y="378" width="232" height="7" fill="#000"/>
+  </mask>
+</defs>
+<circle cx="256" cy="184" r="94" fill="#C4B5FD"/>
+<path d="M116 296 L 396 296" stroke="#EDE9FE" stroke-width="26" stroke-linecap="round"/>
+<rect x="140" y="300" width="232" height="212" fill="#C4B5FD" opacity="0.4" mask="url(#i-reflejo-interno-agua)"/>
+</svg>
+</span><span class="papel"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Reflejo Interno">
+<defs>
+  <mask id="m-reflejo-interno-agua">
+    <rect x="0" y="0" width="512" height="512" fill="#000"/>
+    <ellipse cx="256" cy="382" rx="88" ry="64" fill="#fff"/>
+    <rect x="140" y="334" width="232" height="9" fill="#000"/>
+    <rect x="140" y="378" width="232" height="7" fill="#000"/>
+  </mask>
+</defs>
+<circle cx="256" cy="184" r="94" fill="#8B77C4"/>
+<path d="M116 296 L 396 296" stroke="#4C3A73" stroke-width="26" stroke-linecap="round"/>
+<rect x="140" y="300" width="232" height="212" fill="#8B77C4" opacity="0.4" mask="url(#m-reflejo-interno-agua)"/>
+</svg>
+</span><span class="tira-nota">48 · 24<br>papel</span></div>
+<div class="pal"><span class="sw" style="background:#6D5A9C">#6D5A9C</span><span class="sw" style="background:#332748">#332748</span><span class="sw claro" style="background:#C4B5FD">#C4B5FD</span><span class="sw claro" style="background:#EDE9FE">#EDE9FE</span></div>
+</div>
+</div></div>
+<div class="sec"><div class="sec-head"><h2>Los archivos</h2><p>Vectores, sin ningún PNG que mantener</p></div>
+<div class="tabla-caja"><table><thead><tr><th>Ruta</th><th>Qué es</th><th>Dónde va</th></tr></thead><tbody>
+<tr><td><code>brand/icono/&lt;app&gt;.svg</code></td><td>Icono cuadrado con fondo, esquinas de radio 114</td><td>Play Console, launcher, favicon</td></tr>
+<tr><td><code>brand/marca/&lt;app&gt;.svg</code></td><td>Símbolo suelto, sin fondo, a dos tintas</td><td>Web, documentos, cabeceras</td></tr>
+<tr><td><code>brand/gen_logos.py</code></td><td>La definición de las diez marcas</td><td>Se edita aquí y se ejecuta</td></tr>
+</tbody></table></div>
+<div class="nota"><p><strong>Play Store pide un PNG de 512×512 sin transparencia.</strong> Sale del SVG con una sola orden:</p><p class="mono">rsvg-convert -w 512 -h 512 icono/sol.svg -o sol-512.png</p><p>O abriendo el SVG en el navegador y exportando. El vector es el original; el PNG se regenera cuando haga falta y no se versiona.</p></div>
+<div class="nota"><p><strong>Faltan dos.</strong> <span class="mono">spam</span> y <span class="mono">e-SIM</span> se han dejado fuera a propósito: puede que su marca se esté resolviendo por otro lado, y dos identidades para la misma app es peor que ninguna.</p></div>
+</div>
+<footer>Liquid Sun · Juan Antonio Hernández López · <a href="mailto:liquidsun.dev@gmail.com">liquidsun.dev@gmail.com</a></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Reflejo Interno">
+<defs><linearGradient id="i-reflejo-interno-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#6D5A9C"/><stop offset="1" stop-color="#332748"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-reflejo-interno-bg)"/>
+<defs>
+  <mask id="i-reflejo-interno-agua">
+    <rect x="0" y="0" width="512" height="512" fill="#000"/>
+    <ellipse cx="256" cy="382" rx="88" ry="64" fill="#fff"/>
+    <rect x="140" y="334" width="232" height="9" fill="#000"/>
+    <rect x="140" y="378" width="232" height="7" fill="#000"/>
+  </mask>
+</defs>
+<circle cx="256" cy="184" r="94" fill="#C4B5FD"/>
+<path d="M116 296 L 396 296" stroke="#EDE9FE" stroke-width="26" stroke-linecap="round"/>
+<rect x="140" y="300" width="232" height="212" fill="#C4B5FD" opacity="0.4" mask="url(#i-reflejo-interno-agua)"/>
+</svg>

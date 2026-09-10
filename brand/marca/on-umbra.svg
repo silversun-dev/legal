@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="ON — UMBRA">
+<defs>
+  <mask id="m-on-umbra-ecl">
+    <circle cx="268" cy="272" r="62" fill="#fff"/>
+    <circle cx="292" cy="256" r="60" fill="#000"/>
+  </mask>
+</defs>
+<path d="M146 428 V 268 A 110 110 0 0 1 366 268 V 428" fill="none" stroke="#4C3F73"
+      stroke-width="32" stroke-linecap="round"/>
+<circle cx="268" cy="272" r="62" fill="#A67C1A" mask="url(#m-on-umbra-ecl)"/>
+</svg>

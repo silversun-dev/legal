@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Liquid Sun">
+<defs>
+  <linearGradient id="m-liquid-sun-sol" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F3B22E"/><stop offset="1" stop-color="#E0871A"/>
+  </linearGradient>
+  <clipPath id="m-liquid-sun-disco"><circle cx="256" cy="206" r="132"/></clipPath>
+</defs>
+<circle cx="256" cy="206" r="132" fill="url(#m-liquid-sun-sol)"/>
+<path d="M118 256 C 166 226 206 284 256 284 C 306 284 346 226 394 256 L 394 362 L 118 362 Z"
+      clip-path="url(#m-liquid-sun-disco)" fill="#D2600A" opacity="0.88"/>
+<path d="M256 340 C 244 366 214 392 214 412 A 42 42 0 0 0 298 412 C 298 392 268 366 256 340 Z"
+      fill="url(#m-liquid-sun-sol)"/>
+</svg>
