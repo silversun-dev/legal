@@ -12,10 +12,16 @@ ahí que estas páginas vivan separadas del código.
 
 | App | URL |
 |---|---|
-| Grabadora Forense | https://silversun-dev.github.io/legal/grabadora/ |
-| Cuentakilómetros | https://silversun-dev.github.io/legal/cuentakm/ |
-| PingCoins | https://silversun-dev.github.io/legal/pingcoins/ |
-| Sol · ventana de paseo | https://silversun-dev.github.io/legal/sol/ |
+| Grabadora Forense | https://silversun-dev.github.io/legal/grabadora.html |
+| Cuentakilómetros | https://silversun-dev.github.io/legal/cuentakm.html |
+| PingCoins | https://silversun-dev.github.io/legal/pingcoins.html |
+| Sol · ventana de paseo | https://silversun-dev.github.io/legal/sol.html |
+| GymTonic | https://silversun-dev.github.io/legal/gymtonic.html |
+
+> Estas son las URLs que hay que registrar en Google Play Console. Las rutas sin
+> `.html` (`/legal/grabadora/`) **no existen**: nunca se ha publicado ese formato.
+> Si alguna ficha de Play apunta a una de ellas, está sirviendo un 404 y hay que
+> corregirla.
 
 ## Cómo se editan
 
@@ -28,6 +34,11 @@ python3 gen.py
 ```
 
 Para añadir una app nueva, añade una entrada al array `APPS` con su `slug`,
-`nombre`, `pkg`, `claim` y `cuerpo`. La carpeta y el enlace del índice se crean solos.
+`nombre`, `pkg`, `claim` y `cuerpo`. El fichero `<slug>.html` y el enlace del índice
+se crean solos.
+
+Cada app puede llevar además una clave `fecha` con su propia fecha de última
+actualización; si no la lleva, usa la global `FECHA`. Así, al tocar el texto de una
+sola app no se mueve la fecha de las demás. `FECHA_IDX` es la del índice.
 
 Responsable del tratamiento: Juan Antonio Hernández López · liquidsun.dev@gmail.com

@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
-import os, html
+import html
 
 MARCA   = "Liquid Sun"
 TITULAR = "Juan Antonio Hernández López"
 EMAIL   = "liquidsun.dev@gmail.com"
-FECHA   = "8 de septiembre de 2026"
+FECHA   = "8 de septiembre de 2026"   # por defecto; cada app puede llevar su propia "fecha"
+FECHA_IDX = "21 de septiembre de 2026" # fecha del indice, se actualiza al anadir una app
 
 CSS = """
 :root{--bg:#fbfbfc;--fg:#1a1c22;--fg2:#4a4d59;--line:#e0e0e7;--acc:#2f3a8f;--card:#fff}
@@ -225,6 +226,92 @@ ciudades. (<a href="https://open-meteo.com/en/terms">condiciones de Open-Meteo</
 <p>Todo lo guardado vive en el almacenamiento local de tu navegador o de la aplicación
 instalada. Borrar los datos del sitio, o desinstalarla, lo elimina por completo.</p>
 """),
+
+ # ⚠ REVISAR ANTES DE PUBLICAR (ver notas en el README de la auditoría):
+ #   1. pkg: rellenar con el identificador real cuando exista.
+ #   2. Si la app NO lleva anuncios, borrar la seccion <h2>Publicidad</h2> y la linea
+ #      del identificador de publicidad de la tabla, y el permiso de Internet.
+ #   3. Si la app NO tiene compras, borrar la seccion <h2>Compras dentro de la aplicacion</h2>.
+ #   4. Si no se implementa exportar/importar o la copia de Android, ajustar esa seccion.
+ dict(slug="gymtonic", nombre="GymTonic", pkg="", fecha="21 de septiembre de 2026",
+  claim="Registra tus entrenamientos, series y progreso. Todo se guarda en tu teléfono.",
+  cuerpo="""
+<h2>Resumen en tres frases</h2>
+<div class="box">
+<p>No hay cuenta de usuario, no hay registro y <strong>tus rutinas, tus series y tu progreso no
+salen del teléfono</strong>. No existe ningún servidor propio al que puedan enviarse.</p>
+<p>La aplicación funciona sin conexión, y puedes llevarte todos tus datos cuando quieras
+exportándolos a un archivo.</p>
+</div>
+
+<h2>Qué datos trata la aplicación</h2>
+<table>
+<tr><th>Dato</th><th>Para qué</th><th>Dónde acaba</th></tr>
+<tr><td>Rutinas y ejercicios</td><td>Organizar tus sesiones</td><td>Solo en tu dispositivo</td></tr>
+<tr><td>Series registradas (peso, repeticiones, fecha y hora)</td><td>Es la función principal: llevar el historial y calcular tu progreso</td><td>Solo en tu dispositivo</td></tr>
+<tr><td>Peso corporal y medidas, si las anotas</td><td>Seguir su evolución. <strong>Opcional</strong>: la app funciona sin anotar ninguna</td><td>Solo en tu dispositivo</td></tr>
+<tr><td>Fotos de progreso, si añades alguna</td><td>Documentar tu evolución. <strong>Opcional</strong></td><td>Solo en tu dispositivo</td></tr>
+<tr><td>Notas que escribas</td><td>Recordar sensaciones o ajustes de una sesión</td><td>Solo en tu dispositivo</td></tr>
+<tr><td>Identificador de publicidad</td><td>Mostrar anuncios</td><td>Google AdMob, solo con tu consentimiento</td></tr>
+</table>
+
+<h2>Datos de salud y forma física</h2>
+<p>El peso corporal, las medidas y tu rendimiento en los ejercicios son datos sobre tu forma
+física. Esta aplicación <strong>los guarda únicamente en el almacenamiento local del teléfono</strong>:
+no los envía a ningún servidor, no los comparte con terceros y no los usa para publicidad ni
+para elaborar ningún perfil sobre ti.</p>
+<p>La aplicación tampoco lee ni escribe en Health Connect ni en ninguna otra aplicación de
+salud de tu dispositivo.</p>
+
+<h2>Copias de seguridad y exportación</h2>
+<p>Desde los ajustes puedes exportar todos tus datos a un archivo y volver a importarlo en este
+o en otro teléfono. Ese archivo lo controlas tú: la aplicación no lo envía a ninguna parte, y
+dónde lo guardes o con quién lo compartas depende solo de ti.</p>
+<p>Si además tienes activada la <strong>copia de seguridad de Android</strong>, el sistema operativo puede
+copiar automáticamente los datos de la aplicación a tu propia cuenta de Google Drive, cifrados,
+para restaurarlos cuando cambies de teléfono. Esa copia la gestiona Google como parte de
+Android, no esta aplicación, y se guarda en tu cuenta, no en la nuestra. Puedes desactivarla
+en los ajustes del teléfono (Sistema › Copia de seguridad) y borrarla desde Google Drive ›
+Copias de seguridad.</p>
+
+<h2>Publicidad</h2>
+<p>La aplicación es gratuita y se financia con anuncios de <strong>Google AdMob</strong>. Antes de mostrar
+ningún anuncio, la app te pide consentimiento mediante el formulario oficial de Google
+(User Messaging Platform), tal y como exige la normativa europea.</p>
+<p>Puedes cambiar o retirar tu consentimiento en cualquier momento desde las opciones de
+privacidad dentro de la propia aplicación. Si lo rechazas, seguirás viendo anuncios, pero
+no personalizados.</p>
+<p>Los anuncios no reciben en ningún caso tus entrenamientos, tu peso ni tus medidas: AdMob
+no tiene acceso a los datos de la aplicación.</p>
+<p>El tratamiento que Google hace de esos datos se rige por su propia política:
+<a href="https://policies.google.com/privacy">policies.google.com/privacy</a>.</p>
+
+<h2>Compras dentro de la aplicación</h2>
+<p>Si adquieres alguna función de pago, la compra la procesa <strong>Google Play</strong>. Esta aplicación
+no recibe ni almacena los datos de tu tarjeta ni tu dirección: únicamente consulta a Google
+Play si la compra está activa en tu cuenta.</p>
+
+<h2>Permisos que pide la aplicación</h2>
+<ul>
+<li><strong>Notificaciones</strong> — para avisarte cuando termina el descanso entre series.</li>
+<li><strong>Fotos y multimedia</strong> — opcional, solo si decides añadir fotos de progreso. Si lo deniegas, el resto de la aplicación funciona igual.</li>
+<li><strong>Internet</strong> — únicamente para cargar los anuncios. Tus datos de entrenamiento no viajan por esa conexión.</li>
+</ul>
+
+<h2>Conservación</h2>
+<p>Todo se guarda en el almacenamiento local de la aplicación y permanece hasta que tú lo
+borras. Al desinstalarla, esos datos se eliminan del teléfono.</p>
+<p>Ten en cuenta que dos cosas sobreviven a la desinstalación porque están fuera de la
+aplicación: los archivos que hayas exportado tú, y la copia de seguridad de Android si la
+tienes activada. Los primeros los borras donde los guardaste; la segunda, desde tu cuenta de
+Google.</p>
+
+<h2>Lo que esta aplicación no es</h2>
+<p>GymTonic es un cuaderno de entrenamiento: registra lo que tú anotas y hace cálculos con
+ello. <strong>No es consejo médico ni un plan de entrenamiento personalizado</strong>, y no sustituye la
+valoración de un profesional sanitario ni de un entrenador. Si tienes una lesión o alguna
+condición de salud, consúltalo antes de seguir ninguna rutina.</p>
+"""),
 ]
 
 PAG = """<!doctype html>
@@ -246,7 +333,7 @@ PAG = """<!doctype html>
 {derechos}
 {menores}
 {cambios}
-<footer><a href="../">Volver al índice</a></footer>
+<footer><a href="./index.html">Volver al índice</a></footer>
 </div>
 </body>
 </html>
@@ -278,13 +365,12 @@ IDX = """<!doctype html>
 items = []
 for a in APPS:
     pkgtxt = ' — <code>%s</code>' % a["pkg"] if a["pkg"] else ""
-    os.makedirs(a["slug"], exist_ok=True)
-    with open(os.path.join(a["slug"], "index.html"), "w", encoding="utf-8") as f:
+    with open("%s.html" % a["slug"], "w", encoding="utf-8") as f:
         f.write(PAG.format(css=CSS, marca=MARCA, nombre=a["nombre"], pkgtxt=pkgtxt, claim=a["claim"],
-                           titular=TITULAR, email=EMAIL, fecha=FECHA, cuerpo=a["cuerpo"],
+                           titular=TITULAR, email=EMAIL, fecha=a.get("fecha", FECHA), cuerpo=a["cuerpo"],
                            derechos=DERECHOS.format(email=EMAIL), menores=MENORES, cambios=CAMBIOS))
-    items.append('<li><a href="./%s/">%s</a> — %s</li>' % (a["slug"], a["nombre"], a["claim"]))
+    items.append('<li><a href="./%s.html">%s</a> — %s</li>' % (a["slug"], a["nombre"], a["claim"]))
 
 with open("index.html", "w", encoding="utf-8") as f:
-    f.write(IDX.format(css=CSS, marca=MARCA, titular=TITULAR, email=EMAIL, fecha=FECHA, items="\n".join(items)))
+    f.write(IDX.format(css=CSS, marca=MARCA, titular=TITULAR, email=EMAIL, fecha=FECHA_IDX, items="\n".join(items)))
 print("generadas:", len(APPS) + 1, "paginas")
