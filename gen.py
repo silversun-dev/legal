@@ -4,7 +4,7 @@ import os, html
 MARCA   = "Liquid Sun"
 TITULAR = "Juan Antonio Hernández López"
 EMAIL   = "liquidsun.dev@gmail.com"
-FECHA   = "8 de septiembre de 2026"
+FECHA   = "8 de septiembre de 2026"   # por defecto; cada app puede llevar la suya
 
 CSS = """
 :root{--bg:#fbfbfc;--fg:#1a1c22;--fg2:#4a4d59;--line:#e0e0e7;--acc:#2f3a8f;--card:#fff}
@@ -152,7 +152,8 @@ almacena ningún dato personal.</li>
 borras. Al desinstalarla, se elimina por completo.</p>
 """),
 
- dict(slug="pingcoins", nombre="PingCoins", pkg="com.pingcoins.app",
+ dict(slug="sunbell", nombre="Sun Bell", pkg="com.sunbell.app",
+  alias=["pingcoins"], fecha="21 de septiembre de 2026",
   claim="Analiza el sonido de una moneda al golpearla y lo compara con una biblioteca de firmas acústicas.",
   cuerpo="""
 <h2>Resumen en tres frases</h2>
@@ -161,6 +162,7 @@ borras. Al desinstalarla, se elimina por completo.</p>
 esa pantalla o al pasar la app a segundo plano.</p>
 <p><strong>No se graba audio y no se sube audio a ninguna parte.</strong> Del sonido solo se extraen
 números: frecuencias de resonancia y tiempo de caída.</p>
+<p>Lo único que sale del dispositivo es lo que exige la publicidad, y solo si tú lo autorizas.</p>
 </div>
 
 <h2>Qué datos trata la aplicación</h2>
@@ -169,17 +171,46 @@ números: frecuencias de resonancia y tiempo de caída.</p>
 <tr><td>Sonido captado por el micrófono</td><td>Calcular en el momento las frecuencias y el decaimiento</td><td>Se procesa y se descarta. No se almacena</td></tr>
 <tr><td>Medidas resultantes (números)</td><td>Comparar la moneda con la biblioteca</td><td>Solo en tu dispositivo</td></tr>
 <tr><td>Fotos que añadas a una ficha</td><td>Documentar la pieza</td><td>Solo en tu dispositivo</td></tr>
+<tr><td>Modelo del dispositivo</td><td>Corregir el sesgo del micrófono al calibrar con una moneda patrón</td><td>Solo en tu dispositivo</td></tr>
+<tr><td>Identificador de publicidad</td><td>Mostrar anuncios</td><td>Google AdMob, solo con tu consentimiento</td></tr>
 </table>
 
-<h2>Publicidad y analítica</h2>
-<p>La aplicación <strong>no muestra publicidad</strong>, no incorpora analítica y no utiliza el
-identificador de publicidad del dispositivo.</p>
+<h2>Publicidad</h2>
+<p>La aplicación es gratuita y se financia con anuncios de <strong>Google AdMob</strong>. Antes de mostrar
+ningún anuncio, la app te pide consentimiento mediante el formulario oficial de Google
+(User Messaging Platform), tal y como exige la normativa europea.</p>
+<p>Puedes cambiar o retirar tu consentimiento en cualquier momento desde las opciones de
+privacidad dentro de la propia aplicación. Si lo rechazas, seguirás viendo anuncios, pero
+no personalizados.</p>
+<p>Para mostrarlos, el SDK de AdMob accede al <strong>identificador de publicidad</strong> del dispositivo y
+al estado de la conexión. Ese identificador puedes restablecerlo o eliminarlo cuando quieras
+desde los ajustes de Android, en Privacidad → Anuncios.</p>
+<p>El tratamiento que Google hace de esos datos se rige por su propia política:
+<a href="https://policies.google.com/privacy">policies.google.com/privacy</a>.</p>
+<p>La publicidad es lo <strong>único</strong> que envía datos fuera del dispositivo. El análisis acústico, las
+medidas, las fichas y las fotos no pasan por ella ni se comparten con el anunciante.</p>
+
+<h2>Fotos</h2>
+<p>Las fotos se eligen con el selector del sistema, así que la aplicación no necesita permiso de
+cámara ni acceso a toda tu galería: solo recibe la imagen que tú seleccionas.</p>
+<p>Antes de guardarlas, la app las recomprime en el propio teléfono. Ese paso <strong>elimina todos los
+metadatos EXIF</strong>, incluida la geolocalización: una foto de una moneda no lleva pegado dónde se
+tomó.</p>
 
 <h2>Permisos que pide la aplicación</h2>
 <ul>
 <li><strong>Micrófono</strong> — imprescindible para analizar el sonido de la moneda. Android muestra su indicador mientras está activo.</li>
-<li><strong>Internet</strong> — para actualizar la biblioteca de referencia.</li>
+<li><strong>Internet y estado de la conexión</strong> — para la publicidad y para actualizar la biblioteca de referencia.</li>
+<li><strong>Identificador de publicidad</strong> — lo añade el SDK de AdMob; se usa solo si aceptas los anuncios.</li>
 </ul>
+
+<h2>Funciones comunitarias</h2>
+<p>La aplicación está diseñada para compartir mediciones entre usuarios, pero <strong>esa parte todavía no
+está activa</strong>. En la versión actual el análisis es íntegramente local: ni las medidas, ni las
+fichas, ni las fotos, ni los anuncios de compraventa salen de tu teléfono.</p>
+<p>Cuando se active, tratará datos de otra forma y hará falta explicarlo aquí. Siguiendo lo que
+dice el apartado «Cambios en esta política», esta página se actualizará <strong>antes</strong> de publicar esa
+versión, no después.</p>
 
 <h2>Lo que esta aplicación no es</h2>
 <p>El análisis acústico es <strong>orientativo</strong>. No es un peritaje ni un certificado de
@@ -189,6 +220,8 @@ venta debería basarse únicamente en su resultado.</p>
 <h2>Conservación</h2>
 <p>Las medidas y las fotos se guardan en el almacenamiento local de la aplicación hasta que
 tú las borras. Al desinstalarla, se eliminan.</p>
+<p>Tu respuesta al formulario de consentimiento de anuncios la guarda el propio componente de
+Google en el dispositivo, para no volver a preguntártelo en cada arranque.</p>
 """),
 
  dict(slug="sol", nombre="Sol · ventana de paseo", pkg="",
@@ -246,7 +279,7 @@ PAG = """<!doctype html>
 {derechos}
 {menores}
 {cambios}
-<footer><a href="../">Volver al índice</a></footer>
+<footer><a href="./">Volver al índice</a></footer>
 </div>
 </body>
 </html>
@@ -275,15 +308,23 @@ IDX = """<!doctype html>
 </html>
 """
 
+# Páginas PLANAS (pingcoins.html, no pingcoins/index.html) a propósito: estas
+# se suben desde el navegador, y subir una carpeta la aplasta. Ojo con cambiar
+# esto: las URL ya están dadas de alta en Play Console y un 404 en la política
+# es motivo de rechazo.
 items = []
 for a in APPS:
     pkgtxt = ' — <code>%s</code>' % a["pkg"] if a["pkg"] else ""
-    os.makedirs(a["slug"], exist_ok=True)
-    with open(os.path.join(a["slug"], "index.html"), "w", encoding="utf-8") as f:
-        f.write(PAG.format(css=CSS, marca=MARCA, nombre=a["nombre"], pkgtxt=pkgtxt, claim=a["claim"],
-                           titular=TITULAR, email=EMAIL, fecha=FECHA, cuerpo=a["cuerpo"],
-                           derechos=DERECHOS.format(email=EMAIL), menores=MENORES, cambios=CAMBIOS))
-    items.append('<li><a href="./%s/">%s</a> — %s</li>' % (a["slug"], a["nombre"], a["claim"]))
+    pagina = PAG.format(css=CSS, marca=MARCA, nombre=a["nombre"], pkgtxt=pkgtxt, claim=a["claim"],
+                        titular=TITULAR, email=EMAIL, fecha=a.get("fecha", FECHA), cuerpo=a["cuerpo"],
+                        derechos=DERECHOS.format(email=EMAIL), menores=MENORES, cambios=CAMBIOS)
+    # El mismo texto se escribe también en los nombres antiguos de la app. No es
+    # un redirect: es la página entera. Una política enlazada desde Play que
+    # deja de responder es motivo de rechazo, y mantenerla no cuesta nada.
+    for slug in [a["slug"]] + list(a.get("alias", [])):
+        with open(slug + ".html", "w", encoding="utf-8") as f:
+            f.write(pagina)
+    items.append('<li><a href="./%s.html">%s</a> — %s</li>' % (a["slug"], a["nombre"], a["claim"]))
 
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(IDX.format(css=CSS, marca=MARCA, titular=TITULAR, email=EMAIL, fecha=FECHA, items="\n".join(items)))
