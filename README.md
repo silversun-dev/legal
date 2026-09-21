@@ -18,10 +18,13 @@ ahí que estas páginas vivan separadas del código.
 | Sol · ventana de paseo | https://silversun-dev.github.io/legal/sol.html |
 | GymTonic | https://silversun-dev.github.io/legal/gymtonic.html |
 
-> Estas son las URLs que hay que registrar en Google Play Console. Las rutas sin
-> `.html` (`/legal/grabadora/`) **no existen**: nunca se ha publicado ese formato.
-> Si alguna ficha de Play apunta a una de ellas, está sirviendo un 404 y hay que
-> corregirla.
+> **Estas URLs planas son las dadas de alta en Play Console.** Las rutas con
+> carpeta (`/legal/grabadora/`) no existen y nunca se han publicado: el README
+> las anunciaba por error. El motivo de que las páginas sean planas es que subir
+> el ZIP desde el navegador de GitHub aplasta las carpetas, así que la ruta con
+> carpeta se rompería en cuanto alguien editase desde la web.
+>
+> Queda escrito aquí para no volver a abrir la duda en cada revisión.
 
 ## Cómo se editan
 
