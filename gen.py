@@ -109,7 +109,7 @@ una herramienta: el uso que hagas de las grabaciones es responsabilidad tuya.</p
 """),
 
  dict(slug="cuentakm", nombre="Cuentakilómetros", pkg="liquidsun.cuentakm",
-  claim="Gasolineras con precios oficiales, reparto de gastos por tramos y consumo real por vehículo.",
+  claim="Gasolineras con los precios publicados por el Ministerio (app independiente, no oficial), reparto de gastos por tramos y consumo real por vehículo.",
   cuerpo="""
 <h2>Resumen en tres frases</h2>
 <div class="box">
@@ -134,7 +134,7 @@ envía a ningún servidor propio ni se guarda un historial de por dónde has pas
 <p>Para funcionar necesita pedir datos por internet. Cuando lo hace, el servicio consultado
 recibe inevitablemente tu dirección IP, como en cualquier página web:</p>
 <ul>
-<li><strong>Ministerio para la Transición Ecológica</strong> — precios oficiales de carburantes.
+<li><strong>Ministerio para la Transición Ecológica</strong> — precios de carburantes publicados en sus datos abiertos (<a href="https://geoportalgasolineras.es">geoportalgasolineras.es</a>). Cuenta KM es una app independiente: no es oficial ni representa a ningún organismo público.
 La consulta pasa por un intermediario técnico propio alojado en Cloudflare, que no
 almacena ningún dato personal.</li>
 <li><strong>OpenStreetMap</strong> — las imágenes del mapa.
@@ -159,7 +159,7 @@ vehículos, repostajes, trayectos y tu ubicación no salen del teléfono.</p>
 <h2>Permisos que pide la aplicación</h2>
 <ul>
 <li><strong>Ubicación precisa y aproximada</strong> — para las gasolineras cercanas y los tramos. Puedes denegarla y usar la búsqueda por provincia.</li>
-<li><strong>Internet</strong> — para descargar los precios oficiales y el mapa, y para la publicidad.</li>
+<li><strong>Internet</strong> — para descargar los precios publicados y el mapa, y para la publicidad.</li>
 </ul>
 
 <h2>Conservación</h2>
