@@ -5,8 +5,8 @@
 
 | Campo | Valor |
 |---|---|
-| Última actualización | 2026-09-22 |
-| Actualizado por (sesión/rama) | sesión inventario (análisis inicial) |
+| Última actualización | 2026-10-08 |
+| Actualizado por (sesión/rama) | sesión «Simulador de Android para testing» — `main` |
 | Tipo de app | **No es una app.** Web estática pública (GitHub Pages) con las políticas de privacidad de las apps de Liquid Sun, generadas por `gen.py` (una sola plantilla y una sola sección de derechos RGPD). Incluye `PUBLICIDAD.md`, un aviso permanente sobre cómo declarar anuncios. |
 | **% listo para publicar** | 60 % (completitud para su propósito) |
 | Justificación del % | Publicado y funcionando para 4 apps: Grabadora Forense (`com.forense.grabadora`, con AdMob y UMP), Cuentakilómetros (`app.nosceipsum.cuentakm`), Sun Bell (`com.sunbell.app`, con AdMob y alias `pingcoins.html`) y Sol (sin ID de paquete). `python3 gen.py` genera 5 páginas idénticas a las del repo. **Faltan políticas** de GymTonic (solo existe en una rama sin fusionar y no cuadra con la app real) e Ingles (destino Google Play). Probablemente también de Descorche (vinos), NumiScore (numiscode), ON Umbra (ON) y Reflejo Interno, que ya tienen logo en la rama `brand/`. No hay versión en inglés ni página de borrado de cuenta. |
@@ -64,3 +64,4 @@
 |---|---|---|
 | 2026-09-22 | Creada plantilla vacía de inventario | — |
 | 2026-09-22 | Análisis inicial y relleno del inventario | 60% |
+| 2026-10-08 | `cuentakm.html`: apartado «Informes de errores» (Firebase Crashlytics desde la 1.0.2) y Google Fonts/cdnjs solo hasta la 1.0.1. Cambio hecho en `gen.py` y regenerado | 60% |

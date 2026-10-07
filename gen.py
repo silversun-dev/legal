@@ -109,14 +109,18 @@ una herramienta: el uso que hagas de las grabaciones es responsabilidad tuya.</p
 """),
 
  dict(slug="cuentakm", nombre="Cuentakilómetros", pkg="liquidsun.cuentakm",
+  fecha="8 de octubre de 2026",
   claim="Gasolineras con los precios publicados por el Ministerio (app independiente, no oficial), reparto de gastos por tramos y consumo real por vehículo.",
   cuerpo="""
 <h2>Resumen en tres frases</h2>
 <div class="box">
 <p>No hay cuenta de usuario, no hay registro y <strong>tus vehículos, repostajes y trayectos no
 salen del teléfono</strong>.</p>
-<p>La aplicación <strong>se financia con publicidad</strong> de Google AdMob. Es lo único que
-envía datos fuera del teléfono, y dentro de la Unión Europea se te pregunta antes.</p>
+<p>La aplicación <strong>se financia con publicidad</strong> de Google AdMob, y dentro de la
+Unión Europea se te pregunta antes.</p>
+<p>Desde la versión 1.0.2 envía además <strong>informes técnicos de errores</strong> (qué falló
+y dónde, sin tus datos) para poder corregirlos. Publicidad e informes de errores son lo único
+que sale del teléfono.</p>
 </div>
 
 <h2>Qué datos trata la aplicación</h2>
@@ -126,6 +130,7 @@ envía datos fuera del teléfono, y dentro de la Unión Europea se te pregunta a
 <tr><td>Vehículos, repostajes y gastos</td><td>Calcular consumo real y coste de propiedad</td><td>Solo en tu dispositivo</td></tr>
 <tr><td>Identificador de publicidad</td><td>Mostrar anuncios</td><td>Google AdMob, solo con tu consentimiento</td></tr>
 <tr><td>Interacción con la aplicación</td><td>Medir los anuncios servidos</td><td>Google AdMob, solo con tu consentimiento</td></tr>
+<tr><td>Informes de errores: tipo de fallo y dónde ocurrió, modelo de dispositivo, versiones de Android y de la app, e identificador aleatorio de instalación</td><td>Detectar y corregir fallos</td><td>Firebase Crashlytics (Google), desde la versión 1.0.2</td></tr>
 </table>
 <p>Tu ubicación se usa en el momento para ordenar resultados y calcular distancias. No se
 envía a ningún servidor propio ni se guarda un historial de por dónde has pasado.</p>
@@ -139,7 +144,8 @@ La consulta pasa por un intermediario técnico propio alojado en Cloudflare, que
 almacena ningún dato personal.</li>
 <li><strong>OpenStreetMap</strong> — las imágenes del mapa.
 (<a href="https://osmfoundation.org/wiki/Privacy_Policy">política de OSM</a>)</li>
-<li><strong>Google Fonts y cdnjs</strong> — tipografías y la librería del mapa.</li>
+<li><strong>Google Fonts y cdnjs</strong> — tipografías y la librería del mapa, <strong>solo hasta la
+versión 1.0.1</strong>. Desde la 1.0.2 van incluidas dentro de la aplicación y no se consultan.</li>
 </ul>
 <p>Ninguna de esas consultas incluye tus datos de vehículos, repostajes ni gastos.</p>
 
@@ -153,8 +159,19 @@ decisión más adelante.</p>
 <p>Puedes reiniciar o eliminar tu identificador de publicidad desde los ajustes de Android, en
 <em>Google &rsaquo; Anuncios</em>. Ver un vídeo publicitario dentro de la aplicación quita los
 anuncios durante dos horas.</p>
-<p>La publicidad es lo <strong>único</strong> que envía datos fuera del dispositivo. Tus
-vehículos, repostajes, trayectos y tu ubicación no salen del teléfono.</p>
+<p>La publicidad y los informes de errores (siguiente apartado) son lo <strong>único</strong>
+que envía datos fuera del dispositivo. Tus vehículos, repostajes, trayectos y tu ubicación no
+salen del teléfono.</p>
+
+<h2>Informes de errores</h2>
+<p>Desde la versión 1.0.2, para detectar y corregir fallos, la aplicación envía a
+<strong>Firebase Crashlytics</strong> (Google Ireland Ltd.) un informe técnico cuando ocurre un
+error: el tipo de fallo y en qué parte del código ocurrió, el modelo de dispositivo, las
+versiones de Android y de la aplicación, y un identificador de instalación aleatorio de
+Crashlytics. <strong>No incluye</strong> tu nombre, tu ubicación, tus trayectos ni tus datos de
+vehículos o gastos, y no se usa para publicidad.</p>
+<p>Base legal: interés legítimo en mantener la aplicación funcionando (art. 6.1.f del RGPD).
+Más información en la <a href="https://firebase.google.com/support/privacy">página de privacidad de Firebase</a>.</p>
 
 <h2>Permisos que pide la aplicación</h2>
 <ul>
@@ -164,7 +181,8 @@ vehículos, repostajes, trayectos y tu ubicación no salen del teléfono.</p>
 
 <h2>Conservación</h2>
 <p>Todo se guarda en el almacenamiento local de la aplicación y permanece hasta que tú lo
-borras. Al desinstalarla, se elimina por completo.</p>
+borras. Al desinstalarla, se elimina por completo. Los informes de errores se conservan
+90 días en Firebase Crashlytics y después se borran.</p>
 """),
 
  dict(slug="sunbell", nombre="Sun Bell", pkg="com.sunbell.app",
