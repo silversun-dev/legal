@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Cuentakilómetros">
+<defs><linearGradient id="i-cuentakm-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#0F766E"/><stop offset="1" stop-color="#083F3B"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-cuentakm-bg)"/>
+<path d="M126 316 A 130 130 0 0 1 386 316" fill="none" stroke="#EAFBF6"
+      stroke-width="32" stroke-linecap="round"/>
+<g stroke="#EAFBF6" stroke-width="14" stroke-linecap="round" opacity="0.45">
+  <path d="M154 236 L 175 251"/>
+  <path d="M256 196 L 256 222"/>
+  <path d="M358 236 L 337 251"/>
+</g>
+<path d="M256 316 L 340 228" stroke="#FFC24A" stroke-width="30" stroke-linecap="round"/>
+<circle cx="256" cy="316" r="26" fill="#EAFBF6"/>
+</svg>

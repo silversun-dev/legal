@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Descorche">
+<g transform="rotate(-16 258 104)"><rect x="230" y="60" width="56" height="76" rx="16" fill="#A16207"/></g>
+<path d="M226 190 V244 C226 284 186 292 186 340 V416 A28 28 0 0 0 214 444
+         H298 A28 28 0 0 0 326 416 V340 C326 292 286 284 286 244 V190"
+      fill="none" stroke="#881337" stroke-width="30" stroke-linejoin="round"
+      stroke-linecap="round"/>
+<rect x="208" y="344" width="96" height="58" rx="12" fill="#A16207"/>
+</svg>

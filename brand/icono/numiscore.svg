@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="NumisCore">
+<defs><linearGradient id="i-numiscore-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#3F3F46"/><stop offset="1" stop-color="#18181B"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-numiscore-bg)"/>
+<circle cx="256" cy="256" r="146" fill="none" stroke="#E4E4E7" stroke-width="30"/>
+<circle cx="256" cy="256" r="104" fill="none" stroke="#E4E4E7" stroke-width="8"
+        stroke-dasharray="2 24" stroke-linecap="round" opacity="0.65"/>
+<circle cx="256" cy="256" r="66" fill="#FFC24A"/>
+</svg>

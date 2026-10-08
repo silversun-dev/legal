@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Sol · ventana de paseo">
+<defs><linearGradient id="i-sol-bg" x1="0" y1="0" x2="0.35" y2="1">
+<stop offset="0" stop-color="#2A4A9E"/><stop offset="1" stop-color="#0D1638"/></linearGradient></defs>
+<rect width="512" height="512" rx="114" fill="url(#i-sol-bg)"/>
+<path d="M126 348 A 130 130 0 0 1 386 348" fill="none" stroke="#DCE6FF"
+      stroke-width="16" stroke-linecap="round" stroke-dasharray="0.01 54" opacity="0.8"/>
+<path d="M112 348 L 400 348" stroke="#DCE6FF" stroke-width="28" stroke-linecap="round"/>
+<circle cx="321" cy="235" r="56" fill="#FFC24A"/>
+</svg>
