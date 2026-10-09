@@ -16,5 +16,5 @@ Este repo tiene un subinventario en `INVENTARIO.md` (raíz). Forma parte de una 
    Luego cambia el estado a "✅ RELLENADO".
 3. **Al terminar la sesión** (o tras cambios relevantes): actualiza `INVENTARIO.md` — tareas hechas fuera, nuevas pendientes, % recalculado, fecha, y una fila en el historial. Haz commit junto con el resto del trabajo.
 4. No edites el repo `inventario` desde aquí: el maestro se sincroniza cuando el usuario pida "actualizar la situación" desde ese repo.
-5. **Fuente de verdad = local (`C:/dev/<repo>`), rama `main`.** Se trabaja en local, en la rama principal. Antes de empezar: `git fetch` y comprobar que el local no va por detrás. Al terminar: commit y push (con permiso). No se edita en GitHub web ni en sesiones cloud sin hacer pull antes en local.
+5. **Fuente de verdad = local (`C:/dev/legal`), rama `main`.** Se trabaja en local, en la rama principal. Es el **único repo que se sube a GitHub** (decisión del usuario del 2026-10-09): GitHub Pages sirve las políticas de privacidad a Google Play y a AdMob. Al terminar: commit y push a `main`. El resto de repos no se suben.
 <!-- INVENTARIO:FIN -->
