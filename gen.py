@@ -257,6 +257,80 @@ tú las borras. Al desinstalarla, se eliminan.</p>
 Google en el dispositivo, para no volver a preguntártelo en cada arranque.</p>
 """),
 
+ dict(slug="all-in-ingles", nombre="All in Inglés", pkg="liquidsun.all.ingles",
+  fecha="10 de octubre de 2026",
+  claim="Tarjetas, gramática, libros con diccionario y simulacros del B1, todo en una app.",
+  cuerpo="""
+<h2>Resumen en tres frases</h2>
+<div class="box">
+<p>No hay cuenta de usuario ni servidor propio: <strong>tu progreso, tus libros, tus palabras
+y tus notas se quedan en el teléfono</strong>.</p>
+<p>Solo sale del teléfono lo imprescindible para funcionar: la palabra que buscas cuando la
+app no la conoce, el libro que eliges descargar y, mientras usas el micrófono, tu voz al
+servicio de reconocimiento del propio sistema.</p>
+<p>Esta versión no muestra publicidad ni lleva analítica ni informes de errores. Si una versión
+futura incluye publicidad, esta política se actualizará antes de publicarla. La corrección con IA
+solo funciona si tú pones tu propia clave.</p>
+</div>
+
+<h2>Qué datos trata la aplicación</h2>
+<table>
+<tr><th>Dato</th><th>Para qué</th><th>Dónde acaba</th></tr>
+<tr><td>Tarjetas, progreso, notas de ejercicios, rachas y ajustes</td><td>Que la app recuerde por dónde vas</td><td>Solo en tu dispositivo</td></tr>
+<tr><td>Libros que subes o descargas y palabras que guardas</td><td>Leer con diccionario</td><td>Solo en tu dispositivo</td></tr>
+<tr><td>Tu nombre (opcional) y lo que escribas como «tu porqué»</td><td>Saludarte y recordártelo</td><td>Solo en tu dispositivo</td></tr>
+<tr><td>Palabras o frases que consultas al leer</td><td>Traducirlas cuando el diccionario interno no las tiene</td><td>MyMemory y dictionaryapi.dev (ver abajo)</td></tr>
+<tr><td>Tu voz, mientras usas el micrófono</td><td>Corregir la pronunciación y transcribir el Speaking</td><td>El reconocimiento de voz de tu teléfono (normalmente Google)</td></tr>
+</table>
+
+<h2>Servicios de terceros que la aplicación consulta</h2>
+<p>Cuando la aplicación pide algo por internet, el servicio consultado recibe tu dirección IP,
+como en cualquier página web:</p>
+<ul>
+<li><strong>MyMemory</strong> (Translated srl) — traduce la palabra o frase que consultas, solo
+si no está en el diccionario interno de la app ni en tus tarjetas. Si escribes un correo en
+Ajustes para ampliar el cupo diario, se envía con cada consulta.
+(<a href="https://mymemory.translated.net/doc/privacy.php">política de MyMemory</a>)</li>
+<li><strong>Free Dictionary API</strong> (dictionaryapi.dev) — definición y pronunciación de la
+palabra consultada.</li>
+<li><strong>Project Gutenberg</strong> — los libros del catálogo que eliges descargar.
+(<a href="https://www.gutenberg.org/policy/privacy_policy.html">política de Project Gutenberg</a>)</li>
+</ul>
+<p>Puedes apagar las consultas por internet en <em>Ajustes</em>: la app sigue funcionando con
+su diccionario interno. Ninguna de esas consultas lleva tu progreso, tus notas ni tu nombre.</p>
+
+<h2>Voz y micrófono</h2>
+<p>El narrador usa la voz del propio teléfono, sin enviar nada. El micrófono solo se activa
+cuando lo pulsas; el audio lo procesa el servicio de reconocimiento de voz de tu sistema
+(en la mayoría de móviles Android, Google), con su propia política de privacidad. La app
+recibe solo el texto reconocido y no guarda grabaciones.</p>
+
+<h2>Corrección con inteligencia artificial (opcional)</h2>
+<p>Si pones en <em>Ajustes</em> tu propia clave de la API de Anthropic, al pulsar «Corregir con
+IA» el texto que has escrito (o la transcripción de lo que has dicho) y el enunciado de la tarea
+se envían a <strong>Anthropic</strong> para corregirlos, con tu clave y a tu cargo. La clave se
+guarda solo en tu dispositivo. Sin clave, esta función está apagada y no se envía nada.
+(<a href="https://www.anthropic.com/legal/privacy">política de Anthropic</a>)</p>
+
+<h2>Valorar y recomendar la app</h2>
+<p>De vez en cuando la app puede abrir la ventana de valoración de Google Play; la gestiona
+Google y la app no ve tu valoración. «Recomendar la app» abre el menú de compartir de tu
+teléfono con un enlace a Google Play: tú eliges a quién se envía.</p>
+
+<h2>Recordatorios</h2>
+<p>Los avisos se programan dentro del propio teléfono (notificaciones locales). No pasan por
+ningún servidor.</p>
+
+<h2>Copia de seguridad</h2>
+<p>La copia la generas tú y la guardas donde quieras (por ejemplo, en tu Drive). La app no la
+envía a ninguna parte por su cuenta.</p>
+
+<h2>Conservación</h2>
+<p>Los datos permanecen en tu dispositivo hasta que borras los datos de la aplicación o la
+desinstalas, que los elimina por completo. Antes de cambiar de móvil, haz una copia de
+seguridad desde Ajustes.</p>
+"""),
+
  dict(slug="sol", nombre="Sol · ventana de paseo", pkg="",
   claim="A qué hora salir a caminar o en bici: horas solares, meteorología y rutas.",
   cuerpo="""

@@ -15,6 +15,7 @@ ahí que estas páginas vivan separadas del código.
 | Grabadora Forense | https://silversun-dev.github.io/legal/grabadora.html |
 | Cuentakilómetros | https://silversun-dev.github.io/legal/cuentakm.html |
 | Ping Silver (antes Sun Bell) | https://silversun-dev.github.io/legal/pingsilver.html |
+| All in Inglés | https://silversun-dev.github.io/legal/all-in-ingles.html |
 | Sol · ventana de paseo | https://silversun-dev.github.io/legal/sol.html |
 
 Las páginas son **planas** (`pingsilver.html`), no carpetas: estas se suben desde el
