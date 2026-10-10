@@ -14,15 +14,15 @@ ahí que estas páginas vivan separadas del código.
 |---|---|
 | Grabadora Forense | https://silversun-dev.github.io/legal/grabadora.html |
 | Cuentakilómetros | https://silversun-dev.github.io/legal/cuentakm.html |
-| Sun Bell | https://silversun-dev.github.io/legal/sunbell.html |
+| Ping Silver (antes Sun Bell) | https://silversun-dev.github.io/legal/pingsilver.html |
 | Sol · ventana de paseo | https://silversun-dev.github.io/legal/sol.html |
 
-Las páginas son **planas** (`sunbell.html`), no carpetas: estas se suben desde el
+Las páginas son **planas** (`pingsilver.html`), no carpetas: estas se suben desde el
 navegador y subir una carpeta la aplasta. El README listaba antes URL con carpeta
 que no existían.
 
-`pingcoins.html` sigue vivo y sirve el mismo texto que `sunbell.html`: la app cambió
-de nombre, pero esa URL puede estar ya dada de alta en Play Console y una política
+`sunbell.html` y `pingcoins.html` siguen vivos y sirven el mismo texto que
+`pingsilver.html`: la app cambió de nombre dos veces (la última el 10-10-2026), pero esa URL puede estar ya dada de alta en Play Console y una política
 que deja de responder es motivo de rechazo. Para eso está el campo `alias`.
 
 ## Cómo se editan

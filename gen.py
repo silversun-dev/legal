@@ -185,8 +185,8 @@ borras. Al desinstalarla, se elimina por completo. Los informes de errores se co
 90 días en Firebase Crashlytics y después se borran.</p>
 """),
 
- dict(slug="sunbell", nombre="Sun Bell", pkg="com.sunbell.app",
-  alias=["pingcoins"], fecha="21 de septiembre de 2026",
+ dict(slug="pingsilver", nombre="Ping Silver", pkg="com.liquidsun.pingsilver",
+  alias=["sunbell", "pingcoins"], fecha="10 de octubre de 2026",
   claim="Analiza el sonido de una moneda al golpearla y lo compara con una biblioteca de firmas acústicas.",
   cuerpo="""
 <h2>Resumen en tres frases</h2>

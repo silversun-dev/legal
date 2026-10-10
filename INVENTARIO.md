@@ -5,11 +5,11 @@
 
 | Campo | Valor |
 |---|---|
-| Última actualización | 2026-10-08 |
+| Última actualización | 2026-10-10 |
 | Actualizado por (sesión/rama) | sesión «Simulador de Android para testing» — `main` |
 | Tipo de app | **No es una app.** Web estática pública (GitHub Pages) con las políticas de privacidad de las apps de Liquid Sun, generadas por `gen.py` (una sola plantilla y una sola sección de derechos RGPD). Incluye `PUBLICIDAD.md`, un aviso permanente sobre cómo declarar anuncios. |
 | **% listo para publicar** | 60 % (completitud para su propósito) |
-| Justificación del % | Publicado y funcionando para 4 apps: Grabadora Forense (`com.forense.grabadora`, con AdMob y UMP), Cuentakilómetros (`app.nosceipsum.cuentakm`), Sun Bell (`com.sunbell.app`, con AdMob y alias `pingcoins.html`) y Sol (sin ID de paquete). `python3 gen.py` genera 5 páginas idénticas a las del repo. **Faltan políticas** de GymTonic (solo existe en una rama sin fusionar y no cuadra con la app real) e Ingles (destino Google Play). Probablemente también de Descorche (vinos), NumiScore (numiscode), ON Umbra (ON) y Reflejo Interno, que ya tienen logo en la rama `brand/`. No hay versión en inglés ni página de borrado de cuenta. |
+| Justificación del % | Publicado y funcionando para 4 apps: Grabadora Forense (`com.forense.grabadora`, con AdMob y UMP), Cuentakilómetros (`app.nosceipsum.cuentakm`), Ping Silver, antes Sun Bell (`com.liquidsun.pingsilver`, con AdMob y alias `pingcoins.html`) y Sol (sin ID de paquete). `python3 gen.py` genera 5 páginas idénticas a las del repo. **Faltan políticas** de GymTonic (solo existe en una rama sin fusionar y no cuadra con la app real) e Ingles (destino Google Play). Probablemente también de Descorche (vinos), NumiScore (numiscode), ON Umbra (ON) y Reflejo Interno, que ya tienen logo en la rama `brand/`. No hay versión en inglés ni página de borrado de cuenta. |
 | Destino previsto | Web pública: GitHub Pages, que en el plan gratuito exige repo público. Son las URL que se ponen en Play Console. |
 
 ## 1. Trabajo autónomo pendiente (lo que Claude puede hacer solo)
@@ -30,17 +30,17 @@
 - [ ] Ramas sin fusionar: qué hacer con la política de GymTonic (`laughing-hawking`) y con los logos. ¿Se quedan en este repo público `brand/` (10 logos SVG, `awesome-cori`) o `marca/` (iconos de lanzador PNG de 512 px, `sweet-dijkstra`), o se van a otro sitio? Después, borrar las ramas obsoletas.
 - [ ] Sol y Cuentakilómetros dicen «no muestra publicidad». Si alguna va a llevar anuncios, hay que cambiarlo antes, según la regla de `PUBLICIDAD.md`.
 - [ ] ¿Publicar las políticas también en inglés, para fichas de Play fuera de España?
-- [ ] Nombre definitivo de Sun Bell/PingCoins (`com.sunbell.app` frente a `com.pingcoins.app`), a decidir en el repo ping-coin. La política usa `com.sunbell.app`.
+- [x] ~~Nombre definitivo de Sun Bell/PingCoins~~ → **CERRADO (10-10-2026): Ping Silver, `com.liquidsun.pingsilver`.** Política en `pingsilver.html`; `sunbell.html` y `pingcoins.html` siguen sirviendo el mismo texto.
 
 ## 3. Pruebas manuales que tiene que hacer el usuario
 - [ ] Abrir en el navegador las 5 páginas y el índice (incluida `pingcoins.html`) y comprobar que cargan.
 - [ ] Comprobar en Settings → Pages que GitHub Pages sigue activo sobre `main` (raíz).
 - [ ] En Play Console, comprobar que cada app apunta a su URL plana (`…/legal/<app>.html`), no a una con carpeta, que da 404.
-- [ ] Comprobar que el paquete de cada política (`com.forense.grabadora`, `app.nosceipsum.cuentakm`, `com.sunbell.app`) coincide con el `applicationId` real del AAB.
+- [ ] Comprobar que el paquete de cada política (`com.forense.grabadora`, `app.nosceipsum.cuentakm`, `com.liquidsun.pingsilver`) coincide con el `applicationId` real del AAB.
 - [ ] Comprobar que el formulario de Seguridad de los datos y la casilla «Contiene anuncios» de cada ficha dicen lo mismo que su política.
 
 ## 4. Cómo probar la app
-- Enlace / acceso directo: https://silversun-dev.github.io/legal/ (índice). Páginas: `grabadora.html`, `cuentakm.html`, `sunbell.html` (y su alias `pingcoins.html`), `sol.html`. No se ha podido comprobar desde aquí.
+- Enlace / acceso directo: https://silversun-dev.github.io/legal/ (índice). Páginas: `grabadora.html`, `cuentakm.html`, `pingsilver.html` (y sus alias `sunbell.html` y `pingcoins.html`), `sol.html`. No se ha podido comprobar desde aquí.
 - Instrucciones: en local, `python3 gen.py` regenera las páginas; luego `python3 -m http.server` y abrir `http://localhost:8000/`.
 
 ## 5. Peligros, problemas y avisos
@@ -55,7 +55,7 @@
 - ⚠️ **Sol y Cuentakilómetros afirman «no muestra publicidad».** El inventario de Sol contempla AdMob si se publica con Capacitor. Si llegan anuncios sin cambiar la página, la política quedaría falsa.
 - ⚠️ **Sol**: la política atribuye el cálculo de rutas a OpenStreetMap, pero el repo usa OSRM (servidor de demostración, solo uso no comercial). Hay que declarar bien los terceros. El `pkg` está vacío.
 - ⚠️ **Sun Bell**: la política dice que solo la publicidad saca datos del dispositivo. El repo ping-coin prevé Supabase (cuentas, fotos, medidas): antes de conectarlo hay que actualizar la política y añadir una URL de eliminación de cuenta.
-- ⚠️ El paquete `com.sunbell.app` depende de una decisión aún abierta en ping-coin. Si cambia, hay que actualizar la política y mantener los alias.
+- ✅ El paquete de Ping Silver (antes Sun Bell) quedó fijado el 10-10-2026 en `com.liquidsun.pingsilver`; la política ya lo usa. No borrar los alias `sunbell` y `pingcoins`.
 - ⚠️ Solo en español: las fichas de Play en otros países necesitan, como mínimo, la política en inglés.
 - ⚠️ Repo público a propósito: contiene el nombre completo y el correo del responsable, como exige el RGPD. No se han encontrado secretos ni claves. `gen.py` regenera exactamente los HTML versionados.
 
@@ -65,3 +65,4 @@
 | 2026-09-22 | Creada plantilla vacía de inventario | — |
 | 2026-09-22 | Análisis inicial y relleno del inventario | 60% |
 | 2026-10-08 | `cuentakm.html`: apartado «Informes de errores» (Firebase Crashlytics desde la 1.0.2) y Google Fonts/cdnjs solo hasta la 1.0.1. Cambio hecho en `gen.py` y regenerado | 60% |
+| 2026-10-10 | Sun Bell pasa a llamarse **Ping Silver** (`com.liquidsun.pingsilver`): nueva `pingsilver.html`; `sunbell.html` y `pingcoins.html` sirven el mismo texto como alias. Cambio en `gen.py` y regenerado | 60% |
